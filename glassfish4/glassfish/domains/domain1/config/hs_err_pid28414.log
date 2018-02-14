@@ -1,0 +1,1207 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 12288 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=28414, tid=0x00007f8cb03a3700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_161-b12) (build 1.8.0_161-b12)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.161-b12 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f8cc833b800):  JavaThread "HandshakeCompletedNotify-Thread" daemon [_thread_new, id=28956, stack(0x00007f8cb02a3000,0x00007f8cb03a4000)]
+
+Stack: [0x00007f8cb02a3000,0x00007f8cb03a4000],  sp=0x00007f8cb03a2960,  free space=1022k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xacf94a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x50050b]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x92b133]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x103
+V  [libjvm.so+0x92b1fc]  os::pd_commit_memory(char*, unsigned long, bool)+0xc
+V  [libjvm.so+0x9258da]  os::commit_memory(char*, unsigned long, bool)+0x2a
+V  [libjvm.so+0x9295ef]  os::pd_create_stack_guard_pages(char*, unsigned long)+0x7f
+V  [libjvm.so+0xa7489e]  JavaThread::create_stack_guard_pages()+0x5e
+V  [libjvm.so+0xa7eb04]  JavaThread::run()+0x34
+V  [libjvm.so+0x92da28]  java_start(Thread*)+0x108
+C  [libpthread.so.0+0x7494]  start_thread+0xc4
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x00007f8cc833b800 JavaThread "HandshakeCompletedNotify-Thread" daemon [_thread_new, id=28956, stack(0x00007f8cb02a3000,0x00007f8cb03a4000)]
+  0x00007f8ceca1c800 JavaThread "Keep-Alive-Timer" daemon [_thread_blocked, id=28854, stack(0x00007f8cb03a4000,0x00007f8cb04a5000)]
+  0x00007f8cec9cf800 JavaThread "connector-timer-proxy" daemon [_thread_blocked, id=28682, stack(0x00007f8cb16ad000,0x00007f8cb17ae000)]
+  0x00007f8cec9f1000 JavaThread "Timer-3" daemon [_thread_blocked, id=28681, stack(0x00007f8cb55ef000,0x00007f8cb56f0000)]
+  0x00007f8cec975800 JavaThread "oracle.jdbc.driver.BlockSource.ThreadedCachingBlockSource.BlockReleaser" daemon [_thread_blocked, id=28680, stack(0x00007f8cb5ef6000,0x00007f8cb5ff7000)]
+  0x00007f8cc0c43000 JavaThread "admin-listener(50)" daemon [_thread_blocked, id=28662, stack(0x00007f8cb0ea5000,0x00007f8cb0fa6000)]
+  0x00007f8cc0c41000 JavaThread "admin-listener(49)" daemon [_thread_blocked, id=28661, stack(0x00007f8cb0fa6000,0x00007f8cb10a7000)]
+  0x00007f8cc0c3f000 JavaThread "admin-listener(48)" daemon [_thread_blocked, id=28660, stack(0x00007f8cb10a7000,0x00007f8cb11a8000)]
+  0x00007f8cc0c3d800 JavaThread "admin-listener(47)" daemon [_thread_blocked, id=28659, stack(0x00007f8cb11a8000,0x00007f8cb12a9000)]
+  0x00007f8cc058c800 JavaThread "admin-listener(46)" daemon [_thread_blocked, id=28658, stack(0x00007f8cb12a9000,0x00007f8cb13aa000)]
+  0x00007f8cc058a800 JavaThread "admin-listener(45)" daemon [_thread_blocked, id=28657, stack(0x00007f8cb13aa000,0x00007f8cb14ab000)]
+  0x00007f8cc0588800 JavaThread "admin-listener(44)" daemon [_thread_blocked, id=28656, stack(0x00007f8cb14ab000,0x00007f8cb15ac000)]
+  0x00007f8cc0587800 JavaThread "admin-listener(43)" daemon [_thread_blocked, id=28655, stack(0x00007f8cb15ac000,0x00007f8cb16ad000)]
+  0x00007f8cc0044800 JavaThread "admin-listener(42)" daemon [_thread_blocked, id=28653, stack(0x00007f8cb17ae000,0x00007f8cb18af000)]
+  0x00007f8cc0043000 JavaThread "admin-listener(41)" daemon [_thread_blocked, id=28652, stack(0x00007f8cb18af000,0x00007f8cb19b0000)]
+  0x00007f8cc0041800 JavaThread "admin-listener(40)" daemon [_thread_blocked, id=28651, stack(0x00007f8cb19b0000,0x00007f8cb1ab1000)]
+  0x00007f8cc003f800 JavaThread "admin-listener(39)" daemon [_thread_blocked, id=28650, stack(0x00007f8cb1ab1000,0x00007f8cb1bb2000)]
+  0x00007f8cc00d9800 JavaThread "admin-listener(38)" daemon [_thread_blocked, id=28649, stack(0x00007f8cb1bb2000,0x00007f8cb1cb3000)]
+  0x00007f8cc00d7800 JavaThread "admin-listener(37)" daemon [_thread_blocked, id=28648, stack(0x00007f8cb1cb3000,0x00007f8cb1db4000)]
+  0x00007f8cc00d5800 JavaThread "admin-listener(36)" daemon [_thread_blocked, id=28647, stack(0x00007f8cb1db4000,0x00007f8cb1eb5000)]
+  0x00007f8cc00d4000 JavaThread "admin-listener(35)" daemon [_thread_blocked, id=28646, stack(0x00007f8cb1eb5000,0x00007f8cb1fb6000)]
+  0x00007f8cc0390000 JavaThread "admin-listener(34)" daemon [_thread_blocked, id=28645, stack(0x00007f8cb1fb6000,0x00007f8cb20b7000)]
+  0x00007f8cc038e000 JavaThread "admin-listener(33)" daemon [_thread_blocked, id=28644, stack(0x00007f8cb20b7000,0x00007f8cb21b8000)]
+  0x00007f8cc038c000 JavaThread "admin-listener(32)" daemon [_thread_blocked, id=28643, stack(0x00007f8cb21b8000,0x00007f8cb22b9000)]
+  0x00007f8cc038a000 JavaThread "admin-listener(31)" daemon [_thread_blocked, id=28642, stack(0x00007f8cb22b9000,0x00007f8cb23ba000)]
+  0x00007f8cc05f8800 JavaThread "admin-listener(30)" daemon [_thread_blocked, id=28641, stack(0x00007f8cb23ba000,0x00007f8cb24bb000)]
+  0x00007f8cc05f6800 JavaThread "admin-listener(29)" daemon [_thread_blocked, id=28640, stack(0x00007f8cb24bb000,0x00007f8cb25bc000)]
+  0x00007f8cc05f4800 JavaThread "admin-listener(28)" daemon [_thread_blocked, id=28639, stack(0x00007f8cb25bc000,0x00007f8cb26bd000)]
+  0x00007f8cc05f2800 JavaThread "admin-listener(27)" daemon [_thread_blocked, id=28638, stack(0x00007f8cb26bd000,0x00007f8cb27be000)]
+  0x00007f8cc034f000 JavaThread "admin-listener(26)" daemon [_thread_blocked, id=28637, stack(0x00007f8cb27be000,0x00007f8cb28bf000)]
+  0x00007f8cc034c800 JavaThread "admin-listener(25)" daemon [_thread_blocked, id=28636, stack(0x00007f8cb28bf000,0x00007f8cb29c0000)]
+  0x00007f8cc034a800 JavaThread "admin-listener(24)" daemon [_thread_blocked, id=28635, stack(0x00007f8cb29c0000,0x00007f8cb2ac1000)]
+  0x00007f8cc0348800 JavaThread "admin-listener(23)" daemon [_thread_blocked, id=28634, stack(0x00007f8cb2ac1000,0x00007f8cb2bc2000)]
+  0x00007f8cc0cf3800 JavaThread "admin-listener(22)" daemon [_thread_blocked, id=28633, stack(0x00007f8cb2bc2000,0x00007f8cb2cc3000)]
+  0x00007f8cc0cf1800 JavaThread "admin-listener(21)" daemon [_thread_blocked, id=28632, stack(0x00007f8cb2cc3000,0x00007f8cb2dc4000)]
+  0x00007f8cc0cef800 JavaThread "admin-listener(20)" daemon [_thread_blocked, id=28631, stack(0x00007f8cb2dc4000,0x00007f8cb2ec5000)]
+  0x00007f8cc0cee000 JavaThread "admin-listener(19)" daemon [_thread_blocked, id=28630, stack(0x00007f8cb2ec5000,0x00007f8cb2fc6000)]
+  0x00007f8cc01f7800 JavaThread "admin-listener(18)" daemon [_thread_blocked, id=28629, stack(0x00007f8cb2fc6000,0x00007f8cb30c7000)]
+  0x00007f8cc01f5800 JavaThread "admin-listener(17)" daemon [_thread_blocked, id=28628, stack(0x00007f8cb30c7000,0x00007f8cb31c8000)]
+  0x00007f8cc01f4000 JavaThread "admin-listener(16)" daemon [_thread_blocked, id=28627, stack(0x00007f8cb54ee000,0x00007f8cb55ef000)]
+  0x00007f8cc01f2800 JavaThread "admin-listener(15)" daemon [_thread_blocked, id=28626, stack(0x00007f8cb63fb000,0x00007f8cb64fc000)]
+  0x00007f8cc01f1800 JavaThread "admin-listener(14)" daemon [_thread_blocked, id=28625, stack(0x00007f8cb62fa000,0x00007f8cb63fb000)]
+  0x00007f8cc01f0800 JavaThread "admin-listener(13)" daemon [_thread_blocked, id=28624, stack(0x00007f8cb60f8000,0x00007f8cb61f9000)]
+  0x00007f8cc0ce3800 JavaThread "admin-listener(12)" daemon [_thread_blocked, id=28623, stack(0x00007f8cb61f9000,0x00007f8cb62fa000)]
+  0x00007f8cc0ce2800 JavaThread "admin-listener(11)" daemon [_thread_blocked, id=28622, stack(0x00007f8cb5ff7000,0x00007f8cb60f8000)]
+  0x00007f8cc0ce1000 JavaThread "admin-listener(10)" daemon [_thread_blocked, id=28621, stack(0x00007f8cbc1dd000,0x00007f8cbc2de000)]
+  0x00007f8cc0cde800 JavaThread "admin-listener(9)" daemon [_thread_blocked, id=28620, stack(0x00007f8cbc2de000,0x00007f8cbc3df000)]
+  0x00007f8cc0cdd800 JavaThread "admin-listener(8)" daemon [_thread_in_native, id=28619, stack(0x00007f8cbc3df000,0x00007f8cbc4e0000)]
+  0x00007f8cc07b9800 JavaThread "admin-listener(7)" daemon [_thread_blocked, id=28618, stack(0x00007f8cbc4e0000,0x00007f8cbc5e1000)]
+  0x00007f8cc0fd3800 JavaThread "admin-listener(6)" daemon [_thread_blocked, id=28564, stack(0x00007f8cbc5e1000,0x00007f8cbc6e2000)]
+  0x00007f8cd015d000 JavaThread "Timer-2" daemon [_thread_blocked, id=28526, stack(0x00007f8cb4de9000,0x00007f8cb4eea000)]
+  0x0000000002a10000 JavaThread "ContainerBackgroundProcessor[StandardEngine[glassfish-web].StandardHost[__asadmin].StandardContext[]]" daemon [_thread_blocked, id=28506, stack(0x00007f8cb5bf3000,0x00007f8cb5cf4000)]
+  0x00007f8cccc18800 JavaThread "Configuration Updater" daemon [_thread_blocked, id=28503, stack(0x00007f8cb4ae6000,0x00007f8cb4be7000)]
+  0x00007f8ccc325800 JavaThread "SCR Component Actor" daemon [_thread_blocked, id=28502, stack(0x00007f8cb49e5000,0x00007f8cb4ae6000)]
+  0x00007f8ccc346000 JavaThread "fileinstall-/opt/glassfish4/glassfish/domains/domain1/autodeploy/bundles/" daemon [_thread_blocked, id=28499, stack(0x00007f8cb4be7000,0x00007f8cb4ce8000)]
+  0x00007f8cd0129000 JavaThread "pool-11-thread-1" [_thread_blocked, id=28498, stack(0x00007f8cb4ce8000,0x00007f8cb4de9000)]
+  0x00007f8cec39d800 JavaThread "RMI RenewClean-[10.164.0.3:8686,javax.rmi.ssl.SslRMIClientSocketFactory@51c3b366]" daemon [_thread_blocked, id=28495, stack(0x00007f8cb4eea000,0x00007f8cb4feb000)]
+  0x00007f8cc8049800 JavaThread "RMI Scheduler(0)" daemon [_thread_blocked, id=28494, stack(0x00007f8cb4feb000,0x00007f8cb50ec000)]
+  0x00007f8cec00e000 JavaThread "DestroyJavaVM" [_thread_blocked, id=28418, stack(0x00007f8cf4398000,0x00007f8cf4499000)]
+  0x00007f8cec398000 JavaThread "GlassFish Kernel Main Thread" [_thread_blocked, id=28493, stack(0x00007f8cb50ec000,0x00007f8cb51ed000)]
+  0x00007f8cd4b9c000 JavaThread "PingService" daemon [_thread_blocked, id=28492, stack(0x00007f8cb51ed000,0x00007f8cb52ee000)]
+  0x00007f8cc803c800 JavaThread "GC Daemon" daemon [_thread_blocked, id=28489, stack(0x00007f8cb56f0000,0x00007f8cb57f1000)]
+  0x00007f8cc8041000 JavaThread "RMI Reaper" [_thread_blocked, id=28488, stack(0x00007f8cb57f1000,0x00007f8cb58f2000)]
+  0x00007f8cc8030800 JavaThread "RMI TCP Accept-8686" daemon [_thread_in_native, id=28486, stack(0x00007f8cb58f2000,0x00007f8cb59f3000)]
+  0x00007f8cec565800 JavaThread "AutoDeployer" daemon [_thread_blocked, id=28484, stack(0x00007f8cb5cf4000,0x00007f8cb5df5000)]
+  0x00007f8cec532000 JavaThread "DynamicReloader" daemon [_thread_blocked, id=28483, stack(0x00007f8cb5df5000,0x00007f8cb5ef6000)]
+  0x00007f8cd4425800 JavaThread "ContainerBackgroundProcessor[StandardEngine[glassfish-web].StandardHost[server].StandardContext[/hospital]]" daemon [_thread_blocked, id=28475, stack(0x00007f8cb66fc000,0x00007f8cb67fd000)]
+  0x00007f8cd4299000 JavaThread "p: thread-pool-1; w: 5" daemon [_thread_blocked, id=28474, stack(0x00007f8cb77fd000,0x00007f8cb78fe000)]
+  0x00007f8cd4297000 JavaThread "p: thread-pool-1; w: 4" daemon [_thread_blocked, id=28473, stack(0x00007f8cb78fe000,0x00007f8cb79ff000)]
+  0x00007f8cd4295000 JavaThread "p: thread-pool-1; w: 3" daemon [_thread_blocked, id=28472, stack(0x00007f8cb79ff000,0x00007f8cb7b00000)]
+  0x00007f8cd4293800 JavaThread "p: thread-pool-1; w: 2" daemon [_thread_blocked, id=28471, stack(0x00007f8cb7b00000,0x00007f8cb7c01000)]
+  0x00007f8cd42a6800 JavaThread "p: thread-pool-1; w: 1" daemon [_thread_blocked, id=28470, stack(0x00007f8cb7c01000,0x00007f8cb7d02000)]
+  0x00007f8cd4381000 JavaThread "dol-jar-scanner" daemon [_thread_blocked, id=28469, stack(0x00007f8cb7f02000,0x00007f8cb8003000)]
+  0x00007f8cd40ef800 JavaThread "ContainerBackgroundProcessor[StandardEngine[glassfish-web]]" daemon [_thread_blocked, id=28468, stack(0x00007f8cb8203000,0x00007f8cb8304000)]
+  0x00007f8cd475c800 JavaThread "ContainerBackgroundProcessor[StandardEngine[glassfish-web].StandardHost[server].StandardContext[]]" daemon [_thread_blocked, id=28467, stack(0x00007f8cb8304000,0x00007f8cb8405000)]
+  0x00007f8cd44d4000 JavaThread "Timer-1" daemon [_thread_blocked, id=28466, stack(0x00007f8cb97e4000,0x00007f8cb98e5000)]
+  0x0000000002486800 JavaThread "iiop-service-kernel(1) SelectorRunner" daemon [_thread_in_native, id=28465, stack(0x00007f8cb9904000,0x00007f8cb9a05000)]
+  0x000000000245c800 JavaThread "admin-listener-kernel(1) SelectorRunner" daemon [_thread_in_native, id=28464, stack(0x00007f8cb9a05000,0x00007f8cb9b06000)]
+  0x000000000245a800 JavaThread "admin-listener-expirer(1)" daemon [_thread_blocked, id=28463, stack(0x00007f8cb9b06000,0x00007f8cb9c07000)]
+  0x0000000002458000 JavaThread "admin-listener(5)" daemon [_thread_in_native, id=28462, stack(0x00007f8cb9c07000,0x00007f8cb9d08000)]
+  0x0000000002456000 JavaThread "admin-listener(4)" daemon [_thread_blocked, id=28461, stack(0x00007f8cb9d08000,0x00007f8cb9e09000)]
+  0x0000000002454800 JavaThread "admin-listener(3)" daemon [_thread_blocked, id=28460, stack(0x00007f8cb9e09000,0x00007f8cb9f0a000)]
+  0x0000000002453000 JavaThread "admin-listener(2)" daemon [_thread_blocked, id=28459, stack(0x00007f8cb9f0a000,0x00007f8cba00b000)]
+  0x0000000002452000 JavaThread "admin-listener(1)" daemon [_thread_blocked, id=28458, stack(0x00007f8cba00b000,0x00007f8cba10c000)]
+  0x00007f8cd40b6800 JavaThread "deployment-jar-scanner" daemon [_thread_blocked, id=28457, stack(0x00007f8cba10c000,0x00007f8cba20d000)]
+  0x0000000002431000 JavaThread "http-listener-2-kernel(1) SelectorRunner" daemon [_thread_in_native, id=28456, stack(0x00007f8cba20d000,0x00007f8cba30e000)]
+  0x000000000242f800 JavaThread "http-listener-2-expirer(1)" daemon [_thread_blocked, id=28455, stack(0x00007f8cba30e000,0x00007f8cba40f000)]
+  0x000000000242d000 JavaThread "http-listener-2(5)" daemon [_thread_blocked, id=28454, stack(0x00007f8cba40f000,0x00007f8cba510000)]
+  0x000000000242b000 JavaThread "http-listener-2(4)" daemon [_thread_blocked, id=28453, stack(0x00007f8cba510000,0x00007f8cba611000)]
+  0x0000000002429000 JavaThread "http-listener-2(3)" daemon [_thread_blocked, id=28452, stack(0x00007f8cba611000,0x00007f8cba712000)]
+  0x0000000002427800 JavaThread "http-listener-2(2)" daemon [_thread_blocked, id=28451, stack(0x00007f8cba712000,0x00007f8cba813000)]
+  0x0000000002424000 JavaThread "http-listener-2(1)" daemon [_thread_blocked, id=28450, stack(0x00007f8cba813000,0x00007f8cba914000)]
+  0x00000000023fe000 JavaThread "http-listener-1-kernel(1) SelectorRunner" daemon [_thread_in_native, id=28449, stack(0x00007f8cbab14000,0x00007f8cbac15000)]
+  0x00000000023f3000 JavaThread "http-listener-1-expirer(1)" daemon [_thread_blocked, id=28448, stack(0x00007f8cbac15000,0x00007f8cbad16000)]
+  0x00000000023ec000 JavaThread "http-listener-1(5)" daemon [_thread_blocked, id=28447, stack(0x00007f8cbad16000,0x00007f8cbae17000)]
+  0x00000000023ea000 JavaThread "http-listener-1(4)" daemon [_thread_blocked, id=28446, stack(0x00007f8cbae17000,0x00007f8cbaf18000)]
+  0x00000000023e8000 JavaThread "http-listener-1(3)" daemon [_thread_blocked, id=28445, stack(0x00007f8cbaf18000,0x00007f8cbb019000)]
+  0x00000000023e6800 JavaThread "http-listener-1(2)" daemon [_thread_blocked, id=28444, stack(0x00007f8cbb019000,0x00007f8cbb11a000)]
+  0x00000000023e4800 JavaThread "http-listener-1(1)" daemon [_thread_blocked, id=28443, stack(0x00007f8cbb11a000,0x00007f8cbb21b000)]
+  0x00007f8cd4075800 JavaThread "transaction-manager" daemon [_thread_blocked, id=28442, stack(0x00007f8cbb424000,0x00007f8cbb525000)]
+  0x00000000023af800 JavaThread "Grizzly-HttpSession-Expirer" daemon [_thread_blocked, id=28441, stack(0x00007f8cbb525000,0x00007f8cbb626000)]
+  0x00007f8cec567800 JavaThread "Thread-11" daemon [_thread_blocked, id=28440, stack(0x00007f8cbb826000,0x00007f8cbb927000)]
+  0x00007f8cd807e000 JavaThread "Thread-10" daemon [_thread_blocked, id=28439, stack(0x00007f8cbbd27000,0x00007f8cbbe28000)]
+  0x00007f8cd807c800 JavaThread "Thread-9" daemon [_thread_blocked, id=28438, stack(0x00007f8cbbe28000,0x00007f8cbbf29000)]
+  0x00007f8cd806f800 JavaThread "Thread-8" daemon [_thread_blocked, id=28437, stack(0x00007f8cbbf29000,0x00007f8cbc02a000)]
+  0x00007f8cd804d800 JavaThread "pool-1-thread-1" daemon [_thread_blocked, id=28436, stack(0x00007f8cbc0bc000,0x00007f8cbc1bd000)]
+  0x00007f8cec3e8800 JavaThread "Timer-0" daemon [_thread_blocked, id=28430, stack(0x00007f8cbc6e2000,0x00007f8cbc7e3000)]
+  0x00007f8cec270000 JavaThread "FelixStartLevel" daemon [_thread_blocked, id=28429, stack(0x00007f8cdc750000,0x00007f8cdc851000)]
+  0x00007f8cc400d000 JavaThread "FelixDispatchQueue" daemon [_thread_blocked, id=28428, stack(0x00007f8cdc64f000,0x00007f8cdc750000)]
+  0x00007f8cec19d800 JavaThread "Service Thread" daemon [_thread_blocked, id=28425, stack(0x00007f8cdc9cb000,0x00007f8cdcacc000)]
+  0x00007f8cec198800 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=28424, stack(0x00007f8cdcacc000,0x00007f8cdcbcd000)]
+  0x00007f8cec18e000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=28423, stack(0x00007f8cdcbcd000,0x00007f8cdccce000)]
+  0x00007f8cec0d9800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=28422, stack(0x00007f8cdcd64000,0x00007f8cdce65000)]
+  0x00007f8cec0a6800 JavaThread "Finalizer" daemon [_thread_blocked, id=28421, stack(0x00007f8cf0049000,0x00007f8cf014a000)]
+  0x00007f8cec0a2000 JavaThread "Reference Handler" daemon [_thread_blocked, id=28420, stack(0x00007f8cf014a000,0x00007f8cf024b000)]
+
+Other Threads:
+  0x00007f8cec09a000 VMThread [stack: 0x00007f8cf024b000,0x00007f8cf034c000] [id=28419]
+  0x00007f8cec1a0800 WatcherThread [stack: 0x00007f8cdc8ca000,0x00007f8cdc9cb000] [id=28426]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 59200K, used 10992K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,  14% used [0x00000000e0000000, 0x00000000e0738420, 0x00000000e3370000)
+  from space 6528K,  55% used [0x00000000e39d0000, 0x00000000e3d53fb8, 0x00000000e4030000)
+  to   space 6528K,   0% used [0x00000000e3370000, 0x00000000e3370000, 0x00000000e39d0000)
+ tenured generation   total 131312K, used 122927K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  93% used [0x00000000eaaa0000, 0x00000000f22abd20, 0x00000000f22abe00, 0x00000000f2adc000)
+ Metaspace       used 96246K, capacity 106188K, committed 106456K, reserved 1140736K
+  class space    used 11880K, capacity 14510K, committed 14592K, reserved 1048576K
+
+Card table byte_map: [0x00007f8cf0e45000,0x00007f8cf0f46000] byte_map_base: 0x00007f8cf0745000
+
+Polling page: 0x00007f8cf44a3000
+
+CodeCache: size=245760Kb used=35104Kb max_used=35131Kb free=210655Kb
+ bounds [0x00007f8cdd000000, 0x00007f8cdf290000, 0x00007f8cec000000]
+ total_blobs=12196 nmethods=11590 adapters=517
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 413.935 Thread 0x00007f8cec198800 nmethod 14277 0x00007f8cdd3ac310 code [0x00007f8cdd3ac480, 0x00007f8cdd3ac600]
+Event: 413.948 Thread 0x00007f8cec18e000 nmethod 14108 0x00007f8cdf25e850 code [0x00007f8cdf25ec00, 0x00007f8cdf25fcd0]
+Event: 413.975 Thread 0x00007f8cec18e000 14130       4       java.lang.ThreadLocal::set (30 bytes)
+Event: 414.864 Thread 0x00007f8cec198800 14279       3       java.util.Formatter::checkText (58 bytes)
+Event: 415.126 Thread 0x00007f8cec198800 nmethod 14279 0x00007f8cdf264910 code [0x00007f8cdf264b00, 0x00007f8cdf265480]
+Event: 415.360 Thread 0x00007f8cec198800 14280       2       org.jvnet.hk2.config.types.PropertyBag$Duck::getProperty (51 bytes)
+Event: 415.631 Thread 0x00007f8cec198800 nmethod 14280 0x00007f8cdd342210 code [0x00007f8cdd3423e0, 0x00007f8cdd3426c8]
+Event: 415.850 Thread 0x00007f8cec198800 14281       2       java.util.LinkedList::add (32 bytes)
+Event: 416.330 Thread 0x00007f8cec198800 nmethod 14281 0x00007f8cdd341bd0 code [0x00007f8cdd341d80, 0x00007f8cdd342038]
+Event: 416.720 Thread 0x00007f8cec198800 14283   !   2       org.glassfish.grizzly.ssl.SSLBaseFilter::doHandshakeSync (161 bytes)
+
+GC Heap History (10 events):
+Event: 408.609 GC heap before
+{Heap before GC invocations=157 (full 8):
+ def new generation   total 59200K, used 56040K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K, 100% used [0x00000000e0000000, 0x00000000e3370000, 0x00000000e3370000)
+  from space 6528K,  51% used [0x00000000e3370000, 0x00000000e36ba228, 0x00000000e39d0000)
+  to   space 6528K,   0% used [0x00000000e39d0000, 0x00000000e39d0000, 0x00000000e4030000)
+ tenured generation   total 131312K, used 118655K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  90% used [0x00000000eaaa0000, 0x00000000f1e7fe00, 0x00000000f1e7fe00, 0x00000000f2adc000)
+ Metaspace       used 96171K, capacity 106058K, committed 106200K, reserved 1140736K
+  class space    used 11875K, capacity 14499K, committed 14592K, reserved 1048576K
+Event: 408.628 GC heap after
+Heap after GC invocations=158 (full 8):
+ def new generation   total 59200K, used 2753K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e3370000)
+  from space 6528K,  42% used [0x00000000e39d0000, 0x00000000e3c80588, 0x00000000e4030000)
+  to   space 6528K,   0% used [0x00000000e3370000, 0x00000000e3370000, 0x00000000e39d0000)
+ tenured generation   total 131312K, used 119813K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  91% used [0x00000000eaaa0000, 0x00000000f1fa15e0, 0x00000000f1fa1600, 0x00000000f2adc000)
+ Metaspace       used 96171K, capacity 106058K, committed 106200K, reserved 1140736K
+  class space    used 11875K, capacity 14499K, committed 14592K, reserved 1048576K
+}
+Event: 408.828 GC heap before
+{Heap before GC invocations=158 (full 8):
+ def new generation   total 59200K, used 55425K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,  99% used [0x00000000e0000000, 0x00000000e336fff8, 0x00000000e3370000)
+  from space 6528K,  42% used [0x00000000e39d0000, 0x00000000e3c80588, 0x00000000e4030000)
+  to   space 6528K,   0% used [0x00000000e3370000, 0x00000000e3370000, 0x00000000e39d0000)
+ tenured generation   total 131312K, used 119813K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  91% used [0x00000000eaaa0000, 0x00000000f1fa15e0, 0x00000000f1fa1600, 0x00000000f2adc000)
+ Metaspace       used 96174K, capacity 106058K, committed 106200K, reserved 1140736K
+  class space    used 11875K, capacity 14499K, committed 14592K, reserved 1048576K
+Event: 408.839 GC heap after
+Heap after GC invocations=159 (full 8):
+ def new generation   total 59200K, used 3212K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e3370000)
+  from space 6528K,  49% used [0x00000000e3370000, 0x00000000e3693058, 0x00000000e39d0000)
+  to   space 6528K,   0% used [0x00000000e39d0000, 0x00000000e39d0000, 0x00000000e4030000)
+ tenured generation   total 131312K, used 119813K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  91% used [0x00000000eaaa0000, 0x00000000f1fa15e0, 0x00000000f1fa1600, 0x00000000f2adc000)
+ Metaspace       used 96174K, capacity 106058K, committed 106200K, reserved 1140736K
+  class space    used 11875K, capacity 14499K, committed 14592K, reserved 1048576K
+}
+Event: 409.082 GC heap before
+{Heap before GC invocations=159 (full 8):
+ def new generation   total 59200K, used 55884K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K, 100% used [0x00000000e0000000, 0x00000000e3370000, 0x00000000e3370000)
+  from space 6528K,  49% used [0x00000000e3370000, 0x00000000e3693058, 0x00000000e39d0000)
+  to   space 6528K,   0% used [0x00000000e39d0000, 0x00000000e39d0000, 0x00000000e4030000)
+ tenured generation   total 131312K, used 119813K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  91% used [0x00000000eaaa0000, 0x00000000f1fa15e0, 0x00000000f1fa1600, 0x00000000f2adc000)
+ Metaspace       used 96184K, capacity 106070K, committed 106200K, reserved 1140736K
+  class space    used 11876K, capacity 14501K, committed 14592K, reserved 1048576K
+Event: 409.108 GC heap after
+Heap after GC invocations=160 (full 8):
+ def new generation   total 59200K, used 4488K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e3370000)
+  from space 6528K,  68% used [0x00000000e39d0000, 0x00000000e3e32230, 0x00000000e4030000)
+  to   space 6528K,   0% used [0x00000000e3370000, 0x00000000e3370000, 0x00000000e39d0000)
+ tenured generation   total 131312K, used 119813K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  91% used [0x00000000eaaa0000, 0x00000000f1fa15e0, 0x00000000f1fa1600, 0x00000000f2adc000)
+ Metaspace       used 96184K, capacity 106070K, committed 106200K, reserved 1140736K
+  class space    used 11876K, capacity 14501K, committed 14592K, reserved 1048576K
+}
+Event: 409.378 GC heap before
+{Heap before GC invocations=160 (full 8):
+ def new generation   total 59200K, used 57160K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K, 100% used [0x00000000e0000000, 0x00000000e3370000, 0x00000000e3370000)
+  from space 6528K,  68% used [0x00000000e39d0000, 0x00000000e3e32230, 0x00000000e4030000)
+  to   space 6528K,   0% used [0x00000000e3370000, 0x00000000e3370000, 0x00000000e39d0000)
+ tenured generation   total 131312K, used 119813K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  91% used [0x00000000eaaa0000, 0x00000000f1fa15e0, 0x00000000f1fa1600, 0x00000000f2adc000)
+ Metaspace       used 96214K, capacity 106140K, committed 106456K, reserved 1140736K
+  class space    used 11877K, capacity 14502K, committed 14592K, reserved 1048576K
+Event: 409.411 GC heap after
+Heap after GC invocations=161 (full 8):
+ def new generation   total 59200K, used 4054K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e3370000)
+  from space 6528K,  62% used [0x00000000e3370000, 0x00000000e3765a08, 0x00000000e39d0000)
+  to   space 6528K,   0% used [0x00000000e39d0000, 0x00000000e39d0000, 0x00000000e4030000)
+ tenured generation   total 131312K, used 121427K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  92% used [0x00000000eaaa0000, 0x00000000f2134f20, 0x00000000f2135000, 0x00000000f2adc000)
+ Metaspace       used 96214K, capacity 106140K, committed 106456K, reserved 1140736K
+  class space    used 11877K, capacity 14502K, committed 14592K, reserved 1048576K
+}
+Event: 416.229 GC heap before
+{Heap before GC invocations=161 (full 8):
+ def new generation   total 59200K, used 56726K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K, 100% used [0x00000000e0000000, 0x00000000e3370000, 0x00000000e3370000)
+  from space 6528K,  62% used [0x00000000e3370000, 0x00000000e3765a08, 0x00000000e39d0000)
+  to   space 6528K,   0% used [0x00000000e39d0000, 0x00000000e39d0000, 0x00000000e4030000)
+ tenured generation   total 131312K, used 121427K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  92% used [0x00000000eaaa0000, 0x00000000f2134f20, 0x00000000f2135000, 0x00000000f2adc000)
+ Metaspace       used 96239K, capacity 106182K, committed 106456K, reserved 1140736K
+  class space    used 11880K, capacity 14509K, committed 14592K, reserved 1048576K
+Event: 416.291 GC heap after
+Heap after GC invocations=162 (full 8):
+ def new generation   total 59200K, used 3599K [0x00000000e0000000, 0x00000000e4030000, 0x00000000eaaa0000)
+  eden space 52672K,   0% used [0x00000000e0000000, 0x00000000e0000000, 0x00000000e3370000)
+  from space 6528K,  55% used [0x00000000e39d0000, 0x00000000e3d53fb8, 0x00000000e4030000)
+  to   space 6528K,   0% used [0x00000000e3370000, 0x00000000e3370000, 0x00000000e39d0000)
+ tenured generation   total 131312K, used 122927K [0x00000000eaaa0000, 0x00000000f2adc000, 0x0000000100000000)
+   the space 131312K,  93% used [0x00000000eaaa0000, 0x00000000f22abd20, 0x00000000f22abe00, 0x00000000f2adc000)
+ Metaspace       used 96239K, capacity 106182K, committed 106456K, reserved 1140736K
+  class space    used 11880K, capacity 14509K, committed 14592K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 334.186 Thread 0x00007f8cc05f2800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8cdd72271c method=java.util.LinkedHashMap.afterNodeInsertion(Z)V @ 18
+Event: 336.983 Thread 0x00007f8cc05f4800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8cdea49318 method=java.nio.charset.CharsetEncoder.encode(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;Z)Ljava/nio/charset/CoderResult; @ 23
+Event: 341.601 Thread 0x000000000245c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8cde2640e0 method=java.util.HashMap.removeNode(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/util/HashMap$Node; @ 143
+Event: 404.135 Thread 0x00007f8cc01f0800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8cdf129924 method=jersey.repackaged.com.google.common.collect.Lists$TransformingRandomAccessList.<init>(Ljava/util/List;Ljersey/repackaged/com/google/common/base/Function;)V @ 9
+Event: 404.135 Thread 0x00007f8cc01f0800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8cdf129924 method=jersey.repackaged.com.google.common.collect.Lists$TransformingRandomAccessList.<init>(Ljava/util/List;Ljersey/repackaged/com/google/common/base/Function;)V @ 9
+Event: 404.135 Thread 0x00007f8cc01f0800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8cdf129924 method=jersey.repackaged.com.google.common.collect.Lists$TransformingRandomAccessList.<init>(Ljava/util/List;Ljersey/repackaged/com/google/common/base/Function;)V @ 9
+Event: 404.135 Thread 0x00007f8cc01f0800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8cdf129924 method=jersey.repackaged.com.google.common.collect.Lists$TransformingRandomAccessList.<init>(Ljava/util/List;Ljersey/repackaged/com/google/common/base/Function;)V @ 9
+Event: 406.309 Thread 0x00007f8cc05f2800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f8cdf1b80a8 method=com.sun.faces.application.ApplicationImpl$ReentrantLisneterInvocationGuard.isGuardSet(Ljavax/faces/context/FacesContext;Ljava/lang/Class;)Z @ 15
+Event: 406.310 Thread 0x00007f8cc05f2800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f8cdf18bb04 method=com.sun.faces.application.ApplicationImpl$ReentrantLisneterInvocationGuard.isGuardSet(Ljavax/faces/context/FacesContext;Ljava/lang/Class;)Z @ 15
+Event: 409.305 Thread 0x00007f8cc0ce1000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f8cded71620 method=org.hibernate.validator.internal.metadata.aggregated.BeanMetaDataImpl$BuilderDelegate.add(Lorg/hibernate/validator/internal/metadata/raw/ConstrainedElement;)Z @ 61
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 406.394 Thread 0x00007f8cc05f2800 Exception <a 'java/lang/NullPointerException'> (0x00000000e0120f00) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jni.cpp, line 735]
+Event: 407.583 Thread 0x00007f8cc00d7800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000e177beb8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 407.583 Thread 0x00007f8cc00d7800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000e177d4f8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 407.599 Thread 0x00007f8cc034a800 Exception <a 'java/lang/NullPointerException'> (0x00000000e21aa378) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jni.cpp, line 735]
+Event: 408.102 Thread 0x00007f8cc034a800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000e00099f0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 408.102 Thread 0x00007f8cc034a800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000e000b000) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 408.112 Thread 0x00007f8cc05f4800 Exception <a 'java/lang/NullPointerException'> (0x00000000e0973a40) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jni.cpp, line 735]
+Event: 409.445 Thread 0x00007f8cc0fd3800 Exception <a 'java/lang/NullPointerException'> (0x00000000e0810308) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jni.cpp, line 735]
+Event: 410.633 Thread 0x00007f8cd015d000 Exception <a 'java/io/IOException'> (0x00000000e196fce0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 410.979 Thread 0x00007f8cd015d000 Exception <a 'java/io/IOException'> (0x00000000e19a15e0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u161/10277/hotspot/src/share/vm/prims/jni.cpp, line 709]
+
+Events (10 events):
+Event: 414.734 Thread 0x00007f8cc0cdd800 DEOPT UNPACKING pc=0x00007f8cdd047784 sp=0x00007f8cbc4d9ae0 mode 0
+Event: 414.980 Thread 0x00007f8cc0cdd800 DEOPT PACKING pc=0x00007f8cde57a582 sp=0x00007f8cbc4d8560
+Event: 415.012 Thread 0x00007f8cc0cdd800 DEOPT UNPACKING pc=0x00007f8cdd047784 sp=0x00007f8cbc4d82b0 mode 0
+Event: 415.166 Thread 0x00007f8cec198800 flushing nmethod 0x00007f8cdda01c90
+Event: 415.177 Thread 0x00007f8cc833b800 Thread added: 0x00007f8cc833b800
+Event: 415.211 Thread 0x00007f8cc833b800 Thread exited: 0x00007f8cc833b800
+Event: 415.734 Thread 0x00007f8cec198800 flushing nmethod 0x00007f8cddafa5d0
+Event: 416.160 Executing VM operation: GenCollectForAllocation
+Event: 416.329 Executing VM operation: GenCollectForAllocation done
+Event: 418.490 Thread 0x00007f8cc833b800 Thread added: 0x00007f8cc833b800
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:01 153518                             /usr/lib/jvm/java-8-oracle/bin/java
+00600000-00601000 rw-p 00000000 08:01 153518                             /usr/lib/jvm/java-8-oracle/bin/java
+022be000-02cb0000 rw-p 00000000 00:00 0                                  [heap]
+e0000000-e4030000 rw-p 00000000 00:00 0 
+e4030000-eaaa0000 ---p 00000000 00:00 0 
+eaaa0000-f2adc000 rw-p 00000000 00:00 0 
+f2adc000-100000000 ---p 00000000 00:00 0 
+100000000-100e40000 rw-p 00000000 00:00 0 
+100e40000-140000000 ---p 00000000 00:00 0 
+7f8cafea1000-7f8cafea4000 ---p 00000000 00:00 0 
+7f8cafea4000-7f8caffa2000 rw-p 00000000 00:00 0 
+7f8caffa2000-7f8cb0162000 rw-p 00000000 00:00 0 
+7f8cb0162000-7f8cb01a2000 ---p 00000000 00:00 0 
+7f8cb01a2000-7f8cb01a5000 ---p 00000000 00:00 0 
+7f8cb01a5000-7f8cb02a3000 rw-p 00000000 00:00 0 
+7f8cb02a6000-7f8cb03a4000 rw-p 00000000 00:00 0 
+7f8cb03a4000-7f8cb03a7000 ---p 00000000 00:00 0 
+7f8cb03a7000-7f8cb04a5000 rw-p 00000000 00:00 0 
+7f8cb04a5000-7f8cb06a5000 rw-p 00000000 00:00 0 
+7f8cb06a5000-7f8cb08a5000 rw-p 00000000 00:00 0 
+7f8cb08a5000-7f8cb0aa5000 rw-p 00000000 00:00 0 
+7f8cb0aa5000-7f8cb0ca5000 rw-p 00000000 00:00 0 
+7f8cb0ca5000-7f8cb0ea5000 rw-p 00000000 00:00 0 
+7f8cb0ea5000-7f8cb0ea8000 ---p 00000000 00:00 0 
+7f8cb0ea8000-7f8cb0fa6000 rw-p 00000000 00:00 0 
+7f8cb0fa6000-7f8cb0fa9000 ---p 00000000 00:00 0 
+7f8cb0fa9000-7f8cb10a7000 rw-p 00000000 00:00 0 
+7f8cb10a7000-7f8cb10aa000 ---p 00000000 00:00 0 
+7f8cb10aa000-7f8cb11a8000 rw-p 00000000 00:00 0 
+7f8cb11a8000-7f8cb11ab000 ---p 00000000 00:00 0 
+7f8cb11ab000-7f8cb12a9000 rw-p 00000000 00:00 0 
+7f8cb12a9000-7f8cb12ac000 ---p 00000000 00:00 0 
+7f8cb12ac000-7f8cb13aa000 rw-p 00000000 00:00 0 
+7f8cb13aa000-7f8cb13ad000 ---p 00000000 00:00 0 
+7f8cb13ad000-7f8cb14ab000 rw-p 00000000 00:00 0 
+7f8cb14ab000-7f8cb14ae000 ---p 00000000 00:00 0 
+7f8cb14ae000-7f8cb15ac000 rw-p 00000000 00:00 0 
+7f8cb15ac000-7f8cb15af000 ---p 00000000 00:00 0 
+7f8cb15af000-7f8cb16ad000 rw-p 00000000 00:00 0 
+7f8cb16ad000-7f8cb16b0000 ---p 00000000 00:00 0 
+7f8cb16b0000-7f8cb17ae000 rw-p 00000000 00:00 0 
+7f8cb17ae000-7f8cb17b1000 ---p 00000000 00:00 0 
+7f8cb17b1000-7f8cb18af000 rw-p 00000000 00:00 0 
+7f8cb18af000-7f8cb18b2000 ---p 00000000 00:00 0 
+7f8cb18b2000-7f8cb19b0000 rw-p 00000000 00:00 0 
+7f8cb19b0000-7f8cb19b3000 ---p 00000000 00:00 0 
+7f8cb19b3000-7f8cb1ab1000 rw-p 00000000 00:00 0 
+7f8cb1ab1000-7f8cb1ab4000 ---p 00000000 00:00 0 
+7f8cb1ab4000-7f8cb1bb2000 rw-p 00000000 00:00 0 
+7f8cb1bb2000-7f8cb1bb5000 ---p 00000000 00:00 0 
+7f8cb1bb5000-7f8cb1cb3000 rw-p 00000000 00:00 0 
+7f8cb1cb3000-7f8cb1cb6000 ---p 00000000 00:00 0 
+7f8cb1cb6000-7f8cb1db4000 rw-p 00000000 00:00 0 
+7f8cb1db4000-7f8cb1db7000 ---p 00000000 00:00 0 
+7f8cb1db7000-7f8cb1eb5000 rw-p 00000000 00:00 0 
+7f8cb1eb5000-7f8cb1eb8000 ---p 00000000 00:00 0 
+7f8cb1eb8000-7f8cb1fb6000 rw-p 00000000 00:00 0 
+7f8cb1fb6000-7f8cb1fb9000 ---p 00000000 00:00 0 
+7f8cb1fb9000-7f8cb20b7000 rw-p 00000000 00:00 0 
+7f8cb20b7000-7f8cb20ba000 ---p 00000000 00:00 0 
+7f8cb20ba000-7f8cb21b8000 rw-p 00000000 00:00 0 
+7f8cb21b8000-7f8cb21bb000 ---p 00000000 00:00 0 
+7f8cb21bb000-7f8cb22b9000 rw-p 00000000 00:00 0 
+7f8cb22b9000-7f8cb22bc000 ---p 00000000 00:00 0 
+7f8cb22bc000-7f8cb23ba000 rw-p 00000000 00:00 0 
+7f8cb23ba000-7f8cb23bd000 ---p 00000000 00:00 0 
+7f8cb23bd000-7f8cb24bb000 rw-p 00000000 00:00 0 
+7f8cb24bb000-7f8cb24be000 ---p 00000000 00:00 0 
+7f8cb24be000-7f8cb25bc000 rw-p 00000000 00:00 0 
+7f8cb25bc000-7f8cb25bf000 ---p 00000000 00:00 0 
+7f8cb25bf000-7f8cb26bd000 rw-p 00000000 00:00 0 
+7f8cb26bd000-7f8cb26c0000 ---p 00000000 00:00 0 
+7f8cb26c0000-7f8cb27be000 rw-p 00000000 00:00 0 
+7f8cb27be000-7f8cb27c1000 ---p 00000000 00:00 0 
+7f8cb27c1000-7f8cb28bf000 rw-p 00000000 00:00 0 
+7f8cb28bf000-7f8cb28c2000 ---p 00000000 00:00 0 
+7f8cb28c2000-7f8cb29c0000 rw-p 00000000 00:00 0 
+7f8cb29c0000-7f8cb29c3000 ---p 00000000 00:00 0 
+7f8cb29c3000-7f8cb2ac1000 rw-p 00000000 00:00 0 
+7f8cb2ac1000-7f8cb2ac4000 ---p 00000000 00:00 0 
+7f8cb2ac4000-7f8cb2bc2000 rw-p 00000000 00:00 0 
+7f8cb2bc2000-7f8cb2bc5000 ---p 00000000 00:00 0 
+7f8cb2bc5000-7f8cb2cc3000 rw-p 00000000 00:00 0 
+7f8cb2cc3000-7f8cb2cc6000 ---p 00000000 00:00 0 
+7f8cb2cc6000-7f8cb2dc4000 rw-p 00000000 00:00 0 
+7f8cb2dc4000-7f8cb2dc7000 ---p 00000000 00:00 0 
+7f8cb2dc7000-7f8cb2ec5000 rw-p 00000000 00:00 0 
+7f8cb2ec5000-7f8cb2ec8000 ---p 00000000 00:00 0 
+7f8cb2ec8000-7f8cb2fc6000 rw-p 00000000 00:00 0 
+7f8cb2fc6000-7f8cb2fc9000 ---p 00000000 00:00 0 
+7f8cb2fc9000-7f8cb30c7000 rw-p 00000000 00:00 0 
+7f8cb30c7000-7f8cb30ca000 ---p 00000000 00:00 0 
+7f8cb30ca000-7f8cb31c8000 rw-p 00000000 00:00 0 
+7f8cb31c8000-7f8cb33c8000 rw-p 00000000 00:00 0 
+7f8cb33c8000-7f8cb33dc000 r-xp 00000000 08:01 524784                     /lib/x86_64-linux-gnu/libresolv-2.24.so
+7f8cb33dc000-7f8cb35db000 ---p 00014000 08:01 524784                     /lib/x86_64-linux-gnu/libresolv-2.24.so
+7f8cb35db000-7f8cb35dc000 r--p 00013000 08:01 524784                     /lib/x86_64-linux-gnu/libresolv-2.24.so
+7f8cb35dc000-7f8cb35dd000 rw-p 00014000 08:01 524784                     /lib/x86_64-linux-gnu/libresolv-2.24.so
+7f8cb35dd000-7f8cb35df000 rw-p 00000000 00:00 0 
+7f8cb35df000-7f8cb35e4000 r-xp 00000000 08:01 524406                     /lib/x86_64-linux-gnu/libnss_dns-2.24.so
+7f8cb35e4000-7f8cb37e3000 ---p 00005000 08:01 524406                     /lib/x86_64-linux-gnu/libnss_dns-2.24.so
+7f8cb37e3000-7f8cb37e4000 r--p 00004000 08:01 524406                     /lib/x86_64-linux-gnu/libnss_dns-2.24.so
+7f8cb37e4000-7f8cb37e5000 rw-p 00005000 08:01 524406                     /lib/x86_64-linux-gnu/libnss_dns-2.24.so
+7f8cb37e5000-7f8cb39e5000 rw-p 00000000 00:00 0 
+7f8cb39e5000-7f8cb3be5000 rw-p 00000000 00:00 0 
+7f8cb3be5000-7f8cb3de5000 rw-p 00000000 00:00 0 
+7f8cb3de5000-7f8cb3fe5000 rw-p 00000000 00:00 0 
+7f8cb3fe5000-7f8cb41e5000 rw-p 00000000 00:00 0 
+7f8cb41e5000-7f8cb43e5000 rw-p 00000000 00:00 0 
+7f8cb43e5000-7f8cb45e5000 rw-p 00000000 00:00 0 
+7f8cb45e5000-7f8cb47e5000 rw-p 00000000 00:00 0 
+7f8cb47e5000-7f8cb49e5000 rw-p 00000000 00:00 0 
+7f8cb49e5000-7f8cb49e8000 ---p 00000000 00:00 0 
+7f8cb49e8000-7f8cb4ae6000 rw-p 00000000 00:00 0 
+7f8cb4ae6000-7f8cb4ae9000 ---p 00000000 00:00 0 
+7f8cb4ae9000-7f8cb4be7000 rw-p 00000000 00:00 0 
+7f8cb4be7000-7f8cb4bea000 ---p 00000000 00:00 0 
+7f8cb4bea000-7f8cb4ce8000 rw-p 00000000 00:00 0 
+7f8cb4ce8000-7f8cb4ceb000 ---p 00000000 00:00 0 
+7f8cb4ceb000-7f8cb4de9000 rw-p 00000000 00:00 0 
+7f8cb4de9000-7f8cb4dec000 ---p 00000000 00:00 0 
+7f8cb4dec000-7f8cb4eea000 rw-p 00000000 00:00 0 
+7f8cb4eea000-7f8cb4eed000 ---p 00000000 00:00 0 
+7f8cb4eed000-7f8cb4feb000 rw-p 00000000 00:00 0 
+7f8cb4feb000-7f8cb4fee000 ---p 00000000 00:00 0 
+7f8cb4fee000-7f8cb50ec000 rw-p 00000000 00:00 0 
+7f8cb50ec000-7f8cb50ef000 ---p 00000000 00:00 0 
+7f8cb50ef000-7f8cb51ed000 rw-p 00000000 00:00 0 
+7f8cb51ed000-7f8cb51f0000 ---p 00000000 00:00 0 
+7f8cb51f0000-7f8cb52ee000 rw-p 00000000 00:00 0 
+7f8cb52ee000-7f8cb54ee000 rw-p 00000000 00:00 0 
+7f8cb54ee000-7f8cb54f1000 ---p 00000000 00:00 0 
+7f8cb54f1000-7f8cb55ef000 rw-p 00000000 00:00 0 
+7f8cb55ef000-7f8cb55f2000 ---p 00000000 00:00 0 
+7f8cb55f2000-7f8cb56f0000 rw-p 00000000 00:00 0 
+7f8cb56f0000-7f8cb56f3000 ---p 00000000 00:00 0 
+7f8cb56f3000-7f8cb57f1000 rw-p 00000000 00:00 0 
+7f8cb57f1000-7f8cb57f4000 ---p 00000000 00:00 0 
+7f8cb57f4000-7f8cb58f2000 rw-p 00000000 00:00 0 
+7f8cb58f2000-7f8cb58f5000 ---p 00000000 00:00 0 
+7f8cb58f5000-7f8cb59f3000 rw-p 00000000 00:00 0 
+7f8cb59f3000-7f8cb5bf3000 rw-p 00000000 00:00 0 
+7f8cb5bf3000-7f8cb5bf6000 ---p 00000000 00:00 0 
+7f8cb5bf6000-7f8cb5cf4000 rw-p 00000000 00:00 0 
+7f8cb5cf4000-7f8cb5cf7000 ---p 00000000 00:00 0 
+7f8cb5cf7000-7f8cb5df5000 rw-p 00000000 00:00 0 
+7f8cb5df5000-7f8cb5df8000 ---p 00000000 00:00 0 
+7f8cb5df8000-7f8cb5ef6000 rw-p 00000000 00:00 0 
+7f8cb5ef6000-7f8cb5ef9000 ---p 00000000 00:00 0 
+7f8cb5ef9000-7f8cb5ff7000 rw-p 00000000 00:00 0 
+7f8cb5ff7000-7f8cb5ffa000 ---p 00000000 00:00 0 
+7f8cb5ffa000-7f8cb60f8000 rw-p 00000000 00:00 0 
+7f8cb60f8000-7f8cb60fb000 ---p 00000000 00:00 0 
+7f8cb60fb000-7f8cb61f9000 rw-p 00000000 00:00 0 
+7f8cb61f9000-7f8cb61fc000 ---p 00000000 00:00 0 
+7f8cb61fc000-7f8cb62fa000 rw-p 00000000 00:00 0 
+7f8cb62fa000-7f8cb62fd000 ---p 00000000 00:00 0 
+7f8cb62fd000-7f8cb63fb000 rw-p 00000000 00:00 0 
+7f8cb63fb000-7f8cb63fe000 ---p 00000000 00:00 0 
+7f8cb63fe000-7f8cb64fc000 rw-p 00000000 00:00 0 
+7f8cb64fc000-7f8cb66fc000 rw-p 00000000 00:00 0 
+7f8cb66fc000-7f8cb66ff000 ---p 00000000 00:00 0 
+7f8cb66ff000-7f8cb67fd000 rw-p 00000000 00:00 0 
+7f8cb67fd000-7f8cb69fd000 rw-p 00000000 00:00 0 
+7f8cb69fd000-7f8cb6bfd000 rw-p 00000000 00:00 0 
+7f8cb6bfd000-7f8cb6dfd000 rw-p 00000000 00:00 0 
+7f8cb6dfd000-7f8cb6ffd000 rw-p 00000000 00:00 0 
+7f8cb6ffd000-7f8cb71fd000 rw-p 00000000 00:00 0 
+7f8cb71fd000-7f8cb73fd000 rw-p 00000000 00:00 0 
+7f8cb73fd000-7f8cb75fd000 rw-p 00000000 00:00 0 
+7f8cb75fd000-7f8cb77fd000 rw-p 00000000 00:00 0 
+7f8cb77fd000-7f8cb7800000 ---p 00000000 00:00 0 
+7f8cb7800000-7f8cb78fe000 rw-p 00000000 00:00 0 
+7f8cb78fe000-7f8cb7901000 ---p 00000000 00:00 0 
+7f8cb7901000-7f8cb79ff000 rw-p 00000000 00:00 0 
+7f8cb79ff000-7f8cb7a02000 ---p 00000000 00:00 0 
+7f8cb7a02000-7f8cb7b00000 rw-p 00000000 00:00 0 
+7f8cb7b00000-7f8cb7b03000 ---p 00000000 00:00 0 
+7f8cb7b03000-7f8cb7c01000 rw-p 00000000 00:00 0 
+7f8cb7c01000-7f8cb7c04000 ---p 00000000 00:00 0 
+7f8cb7c04000-7f8cb7d02000 rw-p 00000000 00:00 0 
+7f8cb7d02000-7f8cb7f02000 rw-p 00000000 00:00 0 
+7f8cb7f02000-7f8cb7f05000 ---p 00000000 00:00 0 
+7f8cb7f05000-7f8cb8003000 rw-p 00000000 00:00 0 
+7f8cb8003000-7f8cb8203000 rw-p 00000000 00:00 0 
+7f8cb8203000-7f8cb8206000 ---p 00000000 00:00 0 
+7f8cb8206000-7f8cb8304000 rw-p 00000000 00:00 0 
+7f8cb8304000-7f8cb8307000 ---p 00000000 00:00 0 
+7f8cb8307000-7f8cb8405000 rw-p 00000000 00:00 0 
+7f8cb8405000-7f8cb8605000 rw-p 00000000 00:00 0 
+7f8cb8605000-7f8cb860c000 r-xp 00000000 08:01 154896                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt_headless.so
+7f8cb860c000-7f8cb880b000 ---p 00007000 08:01 154896                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt_headless.so
+7f8cb880b000-7f8cb880c000 rw-p 00006000 08:01 154896                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt_headless.so
+7f8cb880c000-7f8cb88ae000 r-xp 00000000 08:01 154878                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt.so
+7f8cb88ae000-7f8cb8aae000 ---p 000a2000 08:01 154878                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt.so
+7f8cb8aae000-7f8cb8aba000 rw-p 000a2000 08:01 154878                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt.so
+7f8cb8aba000-7f8cb8cd4000 rw-p 00000000 00:00 0 
+7f8cb8cd4000-7f8cb8cde000 ---p 00000000 00:00 0 
+7f8cb8cde000-7f8cb8ede000 rw-p 00000000 00:00 0 
+7f8cb8ede000-7f8cb90de000 rw-p 00000000 00:00 0 
+7f8cb90de000-7f8cb90f4000 r-xp 00000000 08:01 524378                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8cb90f4000-7f8cb92f3000 ---p 00016000 08:01 524378                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8cb92f3000-7f8cb92f4000 r--p 00015000 08:01 524378                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8cb92f4000-7f8cb92f5000 rw-p 00016000 08:01 524378                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f8cb92f5000-7f8cb9327000 r-xp 00000000 08:01 154837                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f8cb9327000-7f8cb9526000 ---p 00032000 08:01 154837                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f8cb9526000-7f8cb952c000 rw-p 00031000 08:01 154837                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7f8cb952c000-7f8cb973c000 rw-p 00000000 00:00 0 
+7f8cb973c000-7f8cb973f000 r--s 0001a000 08:01 154901                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7f8cb973f000-7f8cb9742000 r--s 0001a000 08:01 154901                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7f8cb979e000-7f8cb97a3000 r--s 002f9000 08:01 154774                     /usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar
+7f8cb97a3000-7f8cb97a5000 r--s 00001000 08:01 277285                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/dnsns.jar
+7f8cb97a5000-7f8cb97a6000 r--s 00003000 08:01 401990                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/prototype-1.5.0.jar
+7f8cb97a6000-7f8cb97a7000 r--s 00009000 08:01 401989                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/json-1.0.jar
+7f8cb97a7000-7f8cb97aa000 r--s 00012000 08:01 401987                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/commons-io-1.3.1.jar
+7f8cb97aa000-7f8cb97ab000 r--s 00007000 08:01 401986                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/commons-fileupload-1.1.1.jar
+7f8cb97ab000-7f8cb97b7000 r--s 003cd000 08:01 401991                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/webui-jsf-4.0.2.10.jar
+7f8cb97b7000-7f8cb97ca000 r--s 00137000 08:01 401988                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/dojo-ajax-nodemo-0.4.1.jar
+7f8cb97ca000-7f8cb97d5000 r--s 0006d000 08:01 401992                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/extra/webui-jsf-suntheme-4.0.2.10.jar
+7f8cb97d5000-7f8cb97d7000 r--s 00029000 08:01 401994                     /opt/glassfish4/glassfish/lib/install/applications/__admingui/WEB-INF/lib/console-core-4.1.jar
+7f8cb97d7000-7f8cb97d8000 r--s 0000a000 08:01 403942                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle237/version0.0/bundle.jar-embedded/kxml2-2.2.2.jar
+7f8cb97d8000-7f8cb97de000 r--s 0003e000 08:01 277294                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar
+7f8cb97de000-7f8cb97e0000 r--s 00009000 08:01 277284                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar
+7f8cb97e0000-7f8cb97e4000 r--s 0003a000 08:01 277291                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunpkcs11.jar
+7f8cb97e4000-7f8cb97e7000 ---p 00000000 00:00 0 
+7f8cb97e7000-7f8cb98e5000 rw-p 00000000 00:00 0 
+7f8cb98e5000-7f8cb98e8000 r--s 00025000 08:01 402021                     /opt/glassfish4/glassfish/lib/install/applications/__xa_jdbc_ra/__xa_jdbc_ra.jar
+7f8cb98e8000-7f8cb98eb000 r--s 00025000 08:01 402015                     /opt/glassfish4/glassfish/lib/install/applications/__cp_jdbc_ra/__cp_jdbc_ra.jar
+7f8cb98eb000-7f8cb98ee000 r--s 00025000 08:01 402017                     /opt/glassfish4/glassfish/lib/install/applications/__dm_jdbc_ra/__dm_jdbc_ra.jar
+7f8cb98ee000-7f8cb98f1000 r--s 00025000 08:01 402019                     /opt/glassfish4/glassfish/lib/install/applications/__ds_jdbc_ra/__ds_jdbc_ra.jar
+7f8cb98f1000-7f8cb9904000 r--s 00345000 08:01 154814                     /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+7f8cb9904000-7f8cb9907000 ---p 00000000 00:00 0 
+7f8cb9907000-7f8cb9a05000 rw-p 00000000 00:00 0 
+7f8cb9a05000-7f8cb9a08000 ---p 00000000 00:00 0 
+7f8cb9a08000-7f8cb9b06000 rw-p 00000000 00:00 0 
+7f8cb9b06000-7f8cb9b09000 ---p 00000000 00:00 0 
+7f8cb9b09000-7f8cb9c07000 rw-p 00000000 00:00 0 
+7f8cb9c07000-7f8cb9c0a000 ---p 00000000 00:00 0 
+7f8cb9c0a000-7f8cb9d08000 rw-p 00000000 00:00 0 
+7f8cb9d08000-7f8cb9d0b000 ---p 00000000 00:00 0 
+7f8cb9d0b000-7f8cb9e09000 rw-p 00000000 00:00 0 
+7f8cb9e09000-7f8cb9e0c000 ---p 00000000 00:00 0 
+7f8cb9e0c000-7f8cb9f0a000 rw-p 00000000 00:00 0 
+7f8cb9f0a000-7f8cb9f0d000 ---p 00000000 00:00 0 
+7f8cb9f0d000-7f8cba00b000 rw-p 00000000 00:00 0 
+7f8cba00b000-7f8cba00e000 ---p 00000000 00:00 0 
+7f8cba00e000-7f8cba10c000 rw-p 00000000 00:00 0 
+7f8cba10c000-7f8cba10f000 ---p 00000000 00:00 0 
+7f8cba10f000-7f8cba20d000 rw-p 00000000 00:00 0 
+7f8cba20d000-7f8cba210000 ---p 00000000 00:00 0 
+7f8cba210000-7f8cba30e000 rw-p 00000000 00:00 0 
+7f8cba30e000-7f8cba311000 ---p 00000000 00:00 0 
+7f8cba311000-7f8cba40f000 rw-p 00000000 00:00 0 
+7f8cba40f000-7f8cba412000 ---p 00000000 00:00 0 
+7f8cba412000-7f8cba510000 rw-p 00000000 00:00 0 
+7f8cba510000-7f8cba513000 ---p 00000000 00:00 0 
+7f8cba513000-7f8cba611000 rw-p 00000000 00:00 0 
+7f8cba611000-7f8cba614000 ---p 00000000 00:00 0 
+7f8cba614000-7f8cba712000 rw-p 00000000 00:00 0 
+7f8cba712000-7f8cba715000 ---p 00000000 00:00 0 
+7f8cba715000-7f8cba813000 rw-p 00000000 00:00 0 
+7f8cba813000-7f8cba816000 ---p 00000000 00:00 0 
+7f8cba816000-7f8cba914000 rw-p 00000000 00:00 0 
+7f8cba914000-7f8cbab14000 rw-p 00000000 00:00 0 
+7f8cbab14000-7f8cbab17000 ---p 00000000 00:00 0 
+7f8cbab17000-7f8cbac15000 rw-p 00000000 00:00 0 
+7f8cbac15000-7f8cbac18000 ---p 00000000 00:00 0 
+7f8cbac18000-7f8cbad16000 rw-p 00000000 00:00 0 
+7f8cbad16000-7f8cbad19000 ---p 00000000 00:00 0 
+7f8cbad19000-7f8cbae17000 rw-p 00000000 00:00 0 
+7f8cbae17000-7f8cbae1a000 ---p 00000000 00:00 0 
+7f8cbae1a000-7f8cbaf18000 rw-p 00000000 00:00 0 
+7f8cbaf18000-7f8cbaf1b000 ---p 00000000 00:00 0 
+7f8cbaf1b000-7f8cbb019000 rw-p 00000000 00:00 0 
+7f8cbb019000-7f8cbb01c000 ---p 00000000 00:00 0 
+7f8cbb01c000-7f8cbb11a000 rw-p 00000000 00:00 0 
+7f8cbb11a000-7f8cbb11d000 ---p 00000000 00:00 0 
+7f8cbb11d000-7f8cbb21b000 rw-p 00000000 00:00 0 
+7f8cbb21b000-7f8cbb224000 r-xp 00000000 08:01 154893                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f8cbb224000-7f8cbb423000 ---p 00009000 08:01 154893                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f8cbb423000-7f8cbb424000 rw-p 00008000 08:01 154893                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f8cbb424000-7f8cbb427000 ---p 00000000 00:00 0 
+7f8cbb427000-7f8cbb525000 rw-p 00000000 00:00 0 
+7f8cbb525000-7f8cbb528000 ---p 00000000 00:00 0 
+7f8cbb528000-7f8cbb626000 rw-p 00000000 00:00 0 
+7f8cbb626000-7f8cbb826000 rw-p 00000000 00:00 0 
+7f8cbb826000-7f8cbb829000 ---p 00000000 00:00 0 
+7f8cbb829000-7f8cbb927000 rw-p 00000000 00:00 0 
+7f8cbb927000-7f8cbbb27000 rw-p 00000000 00:00 0 
+7f8cbbb27000-7f8cbbd27000 rw-p 00000000 00:00 0 
+7f8cbbd27000-7f8cbbd2a000 ---p 00000000 00:00 0 
+7f8cbbd2a000-7f8cbbe28000 rw-p 00000000 00:00 0 
+7f8cbbe28000-7f8cbbe2b000 ---p 00000000 00:00 0 
+7f8cbbe2b000-7f8cbbf29000 rw-p 00000000 00:00 0 
+7f8cbbf29000-7f8cbbf2c000 ---p 00000000 00:00 0 
+7f8cbbf2c000-7f8cbc02a000 rw-p 00000000 00:00 0 
+7f8cbc02a000-7f8cbc02d000 r--s 0003b000 08:01 402570                     /opt/glassfish4/javadb/lib/derbynet.jar
+7f8cbc02d000-7f8cbc034000 r--s 00089000 08:01 402569                     /opt/glassfish4/javadb/lib/derbyclient.jar
+7f8cbc034000-7f8cbc05f000 r--s 0028b000 08:01 402554                     /opt/glassfish4/javadb/lib/derby.jar
+7f8cbc05f000-7f8cbc062000 r--s 0003b000 08:01 402570                     /opt/glassfish4/javadb/lib/derbynet.jar
+7f8cbc062000-7f8cbc066000 r--s 00031000 08:01 402572                     /opt/glassfish4/javadb/lib/derbytools.jar
+7f8cbc066000-7f8cbc06d000 r--s 00089000 08:01 402569                     /opt/glassfish4/javadb/lib/derbyclient.jar
+7f8cbc06d000-7f8cbc098000 r--s 0028b000 08:01 402554                     /opt/glassfish4/javadb/lib/derby.jar
+7f8cbc098000-7f8cbc099000 r--s 00001000 08:01 402571                     /opt/glassfish4/javadb/lib/derbyrun.jar
+7f8cbc099000-7f8cbc09c000 r--s 00017000 08:01 402568                     /opt/glassfish4/javadb/lib/derbyLocale_zh_TW.jar
+7f8cbc09c000-7f8cbc09e000 r--s 00017000 08:01 402567                     /opt/glassfish4/javadb/lib/derbyLocale_zh_CN.jar
+7f8cbc09e000-7f8cbc0a1000 r--s 0001b000 08:01 402566                     /opt/glassfish4/javadb/lib/derbyLocale_ru.jar
+7f8cbc0a1000-7f8cbc0a3000 r--s 00014000 08:01 402565                     /opt/glassfish4/javadb/lib/derbyLocale_pt_BR.jar
+7f8cbc0a3000-7f8cbc0a5000 r--s 00015000 08:01 402564                     /opt/glassfish4/javadb/lib/derbyLocale_pl.jar
+7f8cbc0a5000-7f8cbc0a7000 r--s 00019000 08:01 402563                     /opt/glassfish4/javadb/lib/derbyLocale_ko_KR.jar
+7f8cbc0a7000-7f8cbc0aa000 r--s 0001a000 08:01 402562                     /opt/glassfish4/javadb/lib/derbyLocale_ja_JP.jar
+7f8cbc0aa000-7f8cbc0ad000 r--s 00016000 08:01 402561                     /opt/glassfish4/javadb/lib/derbyLocale_it.jar
+7f8cbc0ad000-7f8cbc0af000 r--s 00015000 08:01 402560                     /opt/glassfish4/javadb/lib/derbyLocale_hu.jar
+7f8cbc0af000-7f8cbc0b1000 r--s 00018000 08:01 402559                     /opt/glassfish4/javadb/lib/derbyLocale_fr.jar
+7f8cbc0b1000-7f8cbc0b4000 r--s 00016000 08:01 402558                     /opt/glassfish4/javadb/lib/derbyLocale_es.jar
+7f8cbc0b4000-7f8cbc0b6000 r--s 00018000 08:01 402557                     /opt/glassfish4/javadb/lib/derbyLocale_de_DE.jar
+7f8cbc0b6000-7f8cbc0b8000 r--s 00015000 08:01 402556                     /opt/glassfish4/javadb/lib/derbyLocale_cs.jar
+7f8cbc0b8000-7f8cbc0bc000 r--s 00031000 08:01 402572                     /opt/glassfish4/javadb/lib/derbytools.jar
+7f8cbc0bc000-7f8cbc0bf000 ---p 00000000 00:00 0 
+7f8cbc0bf000-7f8cbc1bd000 rw-p 00000000 00:00 0 
+7f8cbc1bd000-7f8cbc1dc000 r--s 0031f000 08:01 409503                     /opt/glassfish4/glassfish/domains/domain1/lib/ojdbc7.jar
+7f8cbc1dc000-7f8cbc1dd000 r--s 00000000 08:01 402054                     /opt/glassfish4/glassfish/lib/jndi-properties.jar
+7f8cbc1dd000-7f8cbc1e0000 ---p 00000000 00:00 0 
+7f8cbc1e0000-7f8cbc2de000 rw-p 00000000 00:00 0 
+7f8cbc2de000-7f8cbc2e1000 ---p 00000000 00:00 0 
+7f8cbc2e1000-7f8cbc3df000 rw-p 00000000 00:00 0 
+7f8cbc3df000-7f8cbc3e2000 ---p 00000000 00:00 0 
+7f8cbc3e2000-7f8cbc4e0000 rw-p 00000000 00:00 0 
+7f8cbc4e0000-7f8cbc4e3000 ---p 00000000 00:00 0 
+7f8cbc4e3000-7f8cbc5e1000 rw-p 00000000 00:00 0 
+7f8cbc5e1000-7f8cbc5e4000 ---p 00000000 00:00 0 
+7f8cbc5e4000-7f8cbc6e2000 rw-p 00000000 00:00 0 
+7f8cbc6e2000-7f8cbc6e5000 ---p 00000000 00:00 0 
+7f8cbc6e5000-7f8cbc7e3000 rw-p 00000000 00:00 0 
+7f8cbc7e3000-7f8cbc9e3000 rw-p 00000000 00:00 0 
+7f8cbc9e3000-7f8cbcbe3000 rw-p 00000000 00:00 0 
+7f8cbcbe3000-7f8cbcde3000 rw-p 00000000 00:00 0 
+7f8cbcde3000-7f8cbcde6000 r--s 00008000 08:01 403531                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle163/version0.0/bundle.jar
+7f8cbcde6000-7f8cbcde8000 r--s 00012000 08:01 403416                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle140/version0.0/bundle.jar
+7f8cbcde8000-7f8cbcdeb000 r--s 00019000 08:01 403041                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle65/version0.0/bundle.jar
+7f8cbcdeb000-7f8cbcded000 r--s 0000b000 08:01 402951                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle47/version0.0/bundle.jar
+7f8cbcded000-7f8cbcdfa000 r--s 000ca000 08:01 402986                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle54/version0.0/bundle.jar
+7f8cbcdfa000-7f8cbce02000 r--s 00064000 08:01 403141                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle85/version0.0/bundle.jar
+7f8cbce02000-7f8cbce04000 r--s 00004000 08:01 403626                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle182/version0.0/bundle.jar
+7f8cbce04000-7f8cbce08000 r--s 00018000 08:01 403576                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle172/version0.0/bundle.jar
+7f8cbce08000-7f8cbce0e000 r--s 0005a000 08:01 403646                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle186/version0.0/bundle.jar
+7f8cbce0e000-7f8cbce11000 r--s 00022000 08:01 403066                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle70/version0.0/bundle.jar
+7f8cbce11000-7f8cbce13000 r--s 0000e000 08:01 403246                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle106/version0.0/bundle.jar
+7f8cbce13000-7f8cbce1f000 r--s 00073000 08:01 403116                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle80/version0.0/bundle.jar
+7f8cbce1f000-7f8cbce3b000 r--s 00165000 08:01 403436                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle144/version0.0/bundle.jar
+7f8cbce3b000-7f8cbce48000 r--s 0007e000 08:01 403396                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle136/version0.0/bundle.jar
+7f8cbce48000-7f8cbce49000 r--s 00001000 08:01 403271                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle111/version0.0/bundle.jar
+7f8cbce49000-7f8cbce4a000 r--s 00004000 08:01 403776                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle212/version0.0/bundle.jar
+7f8cbce4a000-7f8cbce5f000 r--s 000c6000 08:01 403771                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle211/version0.0/bundle.jar
+7f8cbce5f000-7f8cbce61000 r--s 00012000 08:01 402846                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle26/version0.0/bundle.jar
+7f8cbce61000-7f8cbce62000 r--s 00003000 08:01 403721                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle201/version0.0/bundle.jar
+7f8cbce62000-7f8cbce64000 r--s 00004000 08:01 403906                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle238/version0.0/bundle.jar
+7f8cbce64000-7f8cbce6a000 r--s 00022000 08:01 403131                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle83/version0.0/bundle.jar
+7f8cbce6a000-7f8cbce6c000 r--s 00008000 08:01 403616                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle180/version0.0/bundle.jar
+7f8cbce6c000-7f8cbce72000 r--s 0003f000 08:01 403471                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle151/version0.0/bundle.jar
+7f8cbce72000-7f8cbce74000 r--s 00001000 08:01 403151                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle87/version0.0/bundle.jar
+7f8cbce74000-7f8cbce79000 r--s 0002a000 08:01 403331                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle123/version0.0/bundle.jar
+7f8cbce79000-7f8cbce7a000 r--s 00005000 08:01 403586                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle174/version0.0/bundle.jar
+7f8cbce7a000-7f8cbce7b000 r--s 00005000 08:01 403896                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle236/version0.0/bundle.jar
+7f8cbce7b000-7f8cbce7e000 r--s 00012000 08:01 403156                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle88/version0.0/bundle.jar
+7f8cbce7e000-7f8cbce84000 r--s 00027000 08:01 403391                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle135/version0.0/bundle.jar
+7f8cbce84000-7f8cbce86000 r--s 00016000 08:01 402971                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle51/version0.0/bundle.jar
+7f8cbce86000-7f8cbce87000 r--s 00003000 08:01 403841                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle225/version0.0/bundle.jar
+7f8cbce87000-7f8cbce88000 r--s 00001000 08:01 403671                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle191/version0.0/bundle.jar
+7f8cbce88000-7f8cbce89000 r--s 0000c000 08:01 403166                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle90/version0.0/bundle.jar
+7f8cbce89000-7f8cbcead000 r--s 001a4000 08:01 403851                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle227/version0.0/bundle.jar
+7f8cbcead000-7f8cbceaf000 r--s 00000000 08:01 403111                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle79/version0.0/bundle.jar
+7f8cbceaf000-7f8cbceb1000 r--s 0000e000 08:01 403891                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle235/version0.0/bundle.jar
+7f8cbceb1000-7f8cbceb3000 r--s 00005000 08:01 403011                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle59/version0.0/bundle.jar
+7f8cbceb3000-7f8cbceb5000 r--s 00007000 08:01 403241                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle105/version0.0/bundle.jar
+7f8cbceb5000-7f8cbceb8000 r--s 0000c000 08:01 402731                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle3/version0.0/bundle.jar
+7f8cbceb8000-7f8cbceb9000 r--s 00001000 08:01 402786                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle14/version0.0/bundle.jar
+7f8cbceb9000-7f8cbcebd000 r--s 00019000 08:01 403386                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle134/version0.0/bundle.jar
+7f8cbcebd000-7f8cbcebe000 r--s 00002000 08:01 403731                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle203/version0.0/bundle.jar
+7f8cbcebe000-7f8cbcec0000 r--s 00001000 08:01 403016                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle60/version0.0/bundle.jar
+7f8cbcec0000-7f8cbcec3000 r--s 0000f000 08:01 403596                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle176/version0.0/bundle.jar
+7f8cbcec3000-7f8cbcec4000 r--s 00008000 08:01 403076                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle72/version0.0/bundle.jar
+7f8cbcec4000-7f8cbcec8000 r--s 0003e000 08:01 403426                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle142/version0.0/bundle.jar
+7f8cbcec8000-7f8cbcec9000 r--s 00001000 08:01 403081                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle73/version0.0/bundle.jar
+7f8cbcec9000-7f8cbced2000 r--s 0006e000 08:01 403496                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle156/version0.0/bundle.jar
+7f8cbced2000-7f8cbced4000 r--s 0000d000 08:01 403061                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle69/version0.0/bundle.jar
+7f8cbced4000-7f8cbced6000 r--s 00002000 08:01 403681                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle193/version0.0/bundle.jar
+7f8cbced6000-7f8cbced8000 r--s 00018000 08:01 403526                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle162/version0.0/bundle.jar
+7f8cbced8000-7f8cbcedc000 r--s 0002b000 08:01 403631                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle183/version0.0/bundle.jar
+7f8cbcedc000-7f8cbcee0000 r--s 0002a000 08:01 403566                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle170/version0.0/bundle.jar
+7f8cbcee0000-7f8cbcee4000 r--s 0001f000 08:01 403506                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle158/version0.0/bundle.jar
+7f8cbcee4000-7f8cbcee8000 r--s 00025000 08:01 403096                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle76/version0.0/bundle.jar
+7f8cbcee8000-7f8cbceed000 r--s 00032000 08:01 403591                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle175/version0.0/bundle.jar
+7f8cbceed000-7f8cbceef000 r--s 00004000 08:01 403401                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle137/version0.0/bundle.jar
+7f8cbceef000-7f8cbcef2000 r--s 0001d000 08:01 403676                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle192/version0.0/bundle.jar
+7f8cbcef2000-7f8cbcef4000 r--s 00005000 08:01 402796                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle16/version0.0/bundle.jar
+7f8cbcef4000-7f8cbcef6000 r--s 00001000 08:01 403551                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle167/version0.0/bundle.jar
+7f8cbcef6000-7f8cbcef8000 r--s 00005000 08:01 402721                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle1/version0.0/bundle.jar
+7f8cbcef8000-7f8cbcefa000 r--s 00008000 08:01 403251                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle107/version0.0/bundle.jar
+7f8cbcefa000-7f8cbcefe000 r--s 0002b000 08:01 402811                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle19/version0.0/bundle.jar
+7f8cbcefe000-7f8cbcf07000 r--s 000a1000 08:01 403786                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle214/version0.0/bundle.jar
+7f8cbcf07000-7f8cbcf0d000 r--s 0007e000 08:01 403226                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle102/version0.0/bundle.jar
+7f8cbcf0d000-7f8cbcf11000 r--s 0003b000 08:01 402996                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle56/version0.0/bundle.jar
+7f8cbcf11000-7f8cbcf18000 r--s 0004c000 08:01 403686                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle194/version0.0/bundle.jar
+7f8cbcf18000-7f8cbcf1a000 r--s 00005000 08:01 402791                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle15/version0.0/bundle.jar
+7f8cbcf1a000-7f8cbcf21000 r--s 0003c000 08:01 403411                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle139/version0.0/bundle.jar
+7f8cbcf21000-7f8cbcf23000 r--s 00002000 08:01 403651                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle187/version0.0/bundle.jar
+7f8cbcf23000-7f8cbcf25000 r--s 0000b000 08:01 403831                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle223/version0.0/bundle.jar
+7f8cbcf25000-7f8cbcf27000 r--s 00009000 08:01 403501                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle157/version0.0/bundle.jar
+7f8cbcf27000-7f8cbcf28000 r--s 00005000 08:01 403816                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle220/version0.0/bundle.jar
+7f8cbcf28000-7f8cbcf2a000 r--s 00006000 08:01 403091                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle75/version0.0/bundle.jar
+7f8cbcf2a000-7f8cbcf2b000 r--s 00000000 08:01 403726                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle202/version0.0/bundle.jar
+7f8cbcf2b000-7f8cbcf32000 r--s 00078000 08:01 403696                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle196/version0.0/bundle.jar
+7f8cbcf32000-7f8cbcf35000 r--s 00023000 08:01 402751                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle7/version0.0/bundle.jar
+7f8cbcf35000-7f8cbcf37000 r--s 00006000 08:01 403406                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle138/version0.0/bundle.jar
+7f8cbcf37000-7f8cbcf54000 r--s 00131000 08:01 403766                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle210/version0.0/bundle.jar
+7f8cbcf54000-7f8cbcf57000 r--s 0000e000 08:01 403231                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle103/version0.0/bundle.jar
+7f8cbcf57000-7f8cbcf5a000 r--s 0000d000 08:01 403701                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle197/version0.0/bundle.jar
+7f8cbcf5a000-7f8cbcf5e000 r--s 00029000 08:01 403901                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle237/version0.0/bundle.jar
+7f8cbcf5e000-7f8cbcf62000 r--s 00010000 08:01 402816                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle20/version0.0/bundle.jar
+7f8cbcf62000-7f8cbcf65000 r--s 00011000 08:01 403376                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle132/version0.0/bundle.jar
+7f8cbcf65000-7f8cbcf68000 r--s 00014000 08:01 402916                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle40/version0.0/bundle.jar
+7f8cbcf68000-7f8cbcf6a000 r--s 00010000 08:01 403886                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle234/version0.0/bundle.jar
+7f8cbcf6a000-7f8cbcf6b000 r--s 00004000 08:01 402726                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle2/version0.0/bundle.jar
+7f8cbcf6b000-7f8cbcf6f000 r--s 0002d000 08:01 403206                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle98/version0.0/bundle.jar
+7f8cbcf6f000-7f8cbcf72000 r--s 00017000 08:01 403641                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle185/version0.0/bundle.jar
+7f8cbcf72000-7f8cbcf76000 r--s 00021000 08:01 402831                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle23/version0.0/bundle.jar
+7f8cbcf76000-7f8cbcf78000 r--s 00012000 08:01 402761                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle9/version0.0/bundle.jar
+7f8cbcf78000-7f8cbcf7e000 r--s 00058000 08:01 403516                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle160/version0.0/bundle.jar
+7f8cbcf7e000-7f8cbcf80000 r--s 00002000 08:01 402921                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle41/version0.0/bundle.jar
+7f8cbcf80000-7f8cbcf84000 r--s 0000e000 08:01 403211                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle99/version0.0/bundle.jar
+7f8cbcf84000-7f8cbcf85000 r--s 00001000 08:01 403161                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle89/version0.0/bundle.jar
+7f8cbcf85000-7f8cbcf89000 r--s 00028000 08:01 403346                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle126/version0.0/bundle.jar
+7f8cbcf89000-7f8cbcf8c000 r--s 00026000 08:01 403051                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle67/version0.0/bundle.jar
+7f8cbcf8c000-7f8cbcf8e000 r--s 00002000 08:01 403126                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle82/version0.0/bundle.jar
+7f8cbcf8e000-7f8cbcf90000 r--s 0000d000 08:01 403201                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle97/version0.0/bundle.jar
+7f8cbcf90000-7f8cbcf96000 r--s 0004f000 08:01 402746                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle6/version0.0/bundle.jar
+7f8cbcf96000-7f8cbcf9b000 r--s 00046000 08:01 403691                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle195/version0.0/bundle.jar
+7f8cbcf9b000-7f8cbcf9d000 r--s 0000b000 08:01 403621                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle181/version0.0/bundle.jar
+7f8cbcf9d000-7f8cbcfbf000 r--s 00170000 08:01 402926                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle42/version0.0/bundle.jar
+7f8cbcfbf000-7f8cbcfc1000 r--s 0000b000 08:01 402736                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle4/version0.0/bundle.jar
+7f8cbcfc1000-7f8cbcfc7000 r--s 0004d000 08:01 402841                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle25/version0.0/bundle.jar
+7f8cbcfc7000-7f8cbcfcd000 r--s 00027000 08:01 403221                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle101/version0.0/bundle.jar
+7f8cbcfcd000-7f8cbcfd1000 r--s 0000e000 08:01 403006                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle58/version0.0/bundle.jar
+7f8cbcfd1000-7f8cbcfd3000 r--s 00003000 08:01 403556                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle168/version0.0/bundle.jar
+7f8cbcfd3000-7f8cbcfd5000 r--s 00007000 08:01 403761                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle209/version0.0/bundle.jar
+7f8cbcfd5000-7f8cbcfd7000 r--s 00006000 08:01 403926                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle242/version0.0/bundle.jar
+7f8cbcfd7000-7f8cbcfd9000 r--s 00006000 08:01 403361                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle129/version0.0/bundle.jar
+7f8cbcfd9000-7f8cbcfde000 r--s 00024000 08:01 403281                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle113/version0.0/bundle.jar
+7f8cbcfde000-7f8cbcfe0000 r--s 0000a000 08:01 402881                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle33/version0.0/bundle.jar
+7f8cbcfe0000-7f8cbcfe2000 r--s 0000b000 08:01 402946                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle46/version0.0/bundle.jar
+7f8cbcfe2000-7f8cbcfe4000 r--s 00005000 08:01 402741                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle5/version0.0/bundle.jar
+7f8cbcfe4000-7f8cbcff9000 r--s 000af000 08:01 403036                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle64/version0.0/bundle.jar
+7f8cbcff9000-7f8cbcfff000 r--s 00036000 08:01 402766                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle10/version0.0/bundle.jar
+7f8cbcfff000-7f8cc0000000 rw-p 00000000 00:00 0 
+7f8cc0000000-7f8cc14a1000 rw-p 00000000 00:00 0 
+7f8cc14a1000-7f8cc4000000 ---p 00000000 00:00 0 
+7f8cc4000000-7f8cc4cf4000 rw-p 00000000 00:00 0 
+7f8cc4cf4000-7f8cc8000000 ---p 00000000 00:00 0 
+7f8cc8000000-7f8cc8346000 rw-p 00000000 00:00 0 
+7f8cc8346000-7f8ccc000000 ---p 00000000 00:00 0 
+7f8ccc000000-7f8ccdd6a000 rw-p 00000000 00:00 0 
+7f8ccdd6a000-7f8cd0000000 ---p 00000000 00:00 0 
+7f8cd0000000-7f8cd0431000 rw-p 00000000 00:00 0 
+7f8cd0431000-7f8cd4000000 ---p 00000000 00:00 0 
+7f8cd4000000-7f8cd5043000 rw-p 00000000 00:00 0 
+7f8cd5043000-7f8cd8000000 ---p 00000000 00:00 0 
+7f8cd8000000-7f8cd8997000 rw-p 00000000 00:00 0 
+7f8cd8997000-7f8cdc000000 ---p 00000000 00:00 0 
+7f8cdc000000-7f8cdc001000 r--s 00002000 08:01 403716                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle200/version0.0/bundle.jar
+7f8cdc001000-7f8cdc002000 r--s 00001000 08:01 403136                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle84/version0.0/bundle.jar
+7f8cdc002000-7f8cdc00a000 r--s 00078000 08:01 402871                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle31/version0.0/bundle.jar
+7f8cdc00a000-7f8cdc00c000 r--s 00005000 08:01 403266                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle110/version0.0/bundle.jar
+7f8cdc00c000-7f8cdc00f000 r--s 0001f000 08:01 402861                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle29/version0.0/bundle.jar
+7f8cdc00f000-7f8cdc016000 r--s 0002b000 08:01 403916                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle240/version0.0/bundle.jar
+7f8cdc016000-7f8cdc018000 r--s 0000f000 08:01 403571                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle171/version0.0/bundle.jar
+7f8cdc018000-7f8cdc01a000 r--s 00009000 08:01 403456                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle148/version0.0/bundle.jar
+7f8cdc01a000-7f8cdc058000 r--s 00495000 08:01 403336                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle124/version0.0/bundle.jar
+7f8cdc058000-7f8cdc059000 r--s 00006000 08:01 403866                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle230/version0.0/bundle.jar
+7f8cdc059000-7f8cdc05c000 r--s 0000d000 08:01 403476                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle152/version0.0/bundle.jar
+7f8cdc05c000-7f8cdc060000 r--s 00025000 08:01 403261                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle109/version0.0/bundle.jar
+7f8cdc060000-7f8cdc064000 r--s 00028000 08:01 403256                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle108/version0.0/bundle.jar
+7f8cdc064000-7f8cdc067000 r--s 0000a000 08:01 403536                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle164/version0.0/bundle.jar
+7f8cdc067000-7f8cdc06a000 r--s 00018000 08:01 403606                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle178/version0.0/bundle.jar
+7f8cdc06a000-7f8cdc06e000 r--s 0002c000 08:01 402961                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle49/version0.0/bundle.jar
+7f8cdc06e000-7f8cdc06f000 r--s 0000a000 08:01 403876                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle232/version0.0/bundle.jar
+7f8cdc06f000-7f8cdc078000 r--s 0007a000 08:01 402876                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle32/version0.0/bundle.jar
+7f8cdc078000-7f8cdc079000 r--s 00002000 08:01 403711                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle199/version0.0/bundle.jar
+7f8cdc079000-7f8cdc087000 r--s 000aa000 08:01 402976                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle52/version0.0/bundle.jar
+7f8cdc087000-7f8cdc08f000 r--s 00027000 08:01 403431                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle143/version0.0/bundle.jar
+7f8cdc08f000-7f8cdc092000 r--s 0000f000 08:01 402781                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle13/version0.0/bundle.jar
+7f8cdc092000-7f8cdc094000 r--s 00007000 08:01 403781                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle213/version0.0/bundle.jar
+7f8cdc094000-7f8cdc0a1000 r--s 000d6000 08:01 403121                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle81/version0.0/bundle.jar
+7f8cdc0a1000-7f8cdc0a4000 r--s 00015000 08:01 403326                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle122/version0.0/bundle.jar
+7f8cdc0a4000-7f8cdc0a6000 r--s 00008000 08:01 403306                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle118/version0.0/bundle.jar
+7f8cdc0a6000-7f8cdc0a8000 r--s 0000e000 08:01 403871                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle231/version0.0/bundle.jar
+7f8cdc0a8000-7f8cdc0aa000 r--s 00004000 08:01 402966                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle50/version0.0/bundle.jar
+7f8cdc0aa000-7f8cdc0ac000 r--s 00006000 08:01 402806                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle18/version0.0/bundle.jar
+7f8cdc0ac000-7f8cdc0ad000 r--s 00005000 08:01 403321                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle121/version0.0/bundle.jar
+7f8cdc0ad000-7f8cdc0ae000 r--s 00003000 08:01 403196                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle96/version0.0/bundle.jar
+7f8cdc0ae000-7f8cdc0b0000 r--s 00008000 08:01 403541                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle165/version0.0/bundle.jar
+7f8cdc0b0000-7f8cdc0b1000 r--s 0000b000 08:01 403931                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle243/version0.0/bundle.jar
+7f8cdc0b1000-7f8cdc0b2000 r--s 00006000 08:01 403421                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle141/version0.0/bundle.jar
+7f8cdc0b2000-7f8cdc0c8000 r--s 00138000 08:01 402756                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle8/version0.0/bundle.jar
+7f8cdc0c8000-7f8cdc0c9000 r--s 00004000 08:01 403366                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle130/version0.0/bundle.jar
+7f8cdc0c9000-7f8cdc0d7000 r--s 0012a000 08:01 402771                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle11/version0.0/bundle.jar
+7f8cdc0d7000-7f8cdc0d8000 r--s 00004000 08:01 403791                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle215/version0.0/bundle.jar
+7f8cdc0d8000-7f8cdc0da000 r--s 00003000 08:01 403291                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle115/version0.0/bundle.jar
+7f8cdc0da000-7f8cdc0dc000 r--s 00011000 08:01 402891                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle35/version0.0/bundle.jar
+7f8cdc0dc000-7f8cdc0de000 r--s 00001000 08:01 403511                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle159/version0.0/bundle.jar
+7f8cdc0de000-7f8cdc0e0000 r--s 00001000 08:01 402801                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle17/version0.0/bundle.jar
+7f8cdc0e0000-7f8cdc0e2000 r--s 0000c000 08:01 403821                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle221/version0.0/bundle.jar
+7f8cdc0e2000-7f8cdc0e8000 r--s 00059000 08:01 403451                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle147/version0.0/bundle.jar
+7f8cdc0e8000-7f8cdc0ea000 r--s 0000a000 08:01 403356                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle128/version0.0/bundle.jar
+7f8cdc0ea000-7f8cdc0f1000 r--s 0004c000 08:01 403286                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle114/version0.0/bundle.jar
+7f8cdc0f1000-7f8cdc0f3000 r--s 0000d000 08:01 403461                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle149/version0.0/bundle.jar
+7f8cdc0f3000-7f8cdc0f6000 r--s 0000b000 08:01 402776                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle12/version0.0/bundle.jar
+7f8cdc0f6000-7f8cdc0f7000 r--s 00001000 08:01 403861                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle229/version0.0/bundle.jar
+7f8cdc0f7000-7f8cdc0f9000 r--s 0000d000 08:01 403276                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle112/version0.0/bundle.jar
+7f8cdc0f9000-7f8cdc102000 r--s 0005a000 08:01 403836                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle224/version0.0/bundle.jar
+7f8cdc102000-7f8cdc10f000 r--s 00106000 08:01 403341                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle125/version0.0/bundle.jar
+7f8cdc10f000-7f8cdc111000 r--s 00007000 08:01 403486                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle154/version0.0/bundle.jar
+7f8cdc111000-7f8cdc112000 r--s 0000c000 08:01 403001                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle57/version0.0/bundle.jar
+7f8cdc112000-7f8cdc113000 r--s 00005000 08:01 403491                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle155/version0.0/bundle.jar
+7f8cdc113000-7f8cdc116000 r--s 00019000 08:01 403381                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle133/version0.0/bundle.jar
+7f8cdc116000-7f8cdc117000 r--s 00001000 08:01 402906                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle38/version0.0/bundle.jar
+7f8cdc117000-7f8cdc119000 r--s 00004000 08:01 402981                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle53/version0.0/bundle.jar
+7f8cdc119000-7f8cdc11b000 r--s 00006000 08:01 402991                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle55/version0.0/bundle.jar
+7f8cdc11b000-7f8cdc12a000 r--s 0009e000 08:01 403031                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle63/version0.0/bundle.jar
+7f8cdc12a000-7f8cdc12d000 r--s 00016000 08:01 403021                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle61/version0.0/bundle.jar
+7f8cdc12d000-7f8cdc132000 r--s 00020000 08:01 402941                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle45/version0.0/bundle.jar
+7f8cdc132000-7f8cdc133000 r--s 00003000 08:01 403101                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle77/version0.0/bundle.jar
+7f8cdc133000-7f8cdc139000 r--s 00044000 08:01 402821                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle21/version0.0/bundle.jar
+7f8cdc139000-7f8cdc13b000 r--s 00002000 08:01 403191                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle95/version0.0/bundle.jar
+7f8cdc13b000-7f8cdc13e000 r--s 00012000 08:01 403911                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle239/version0.0/bundle.jar
+7f8cdc13e000-7f8cdc141000 r--s 00012000 08:01 403881                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle233/version0.0/bundle.jar
+7f8cdc141000-7f8cdc143000 r--s 00008000 08:01 403806                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle218/version0.0/bundle.jar
+7f8cdc143000-7f8cdc145000 r--s 00000000 08:01 403706                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle198/version0.0/bundle.jar
+7f8cdc145000-7f8cdc147000 r--s 00005000 08:01 403521                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle161/version0.0/bundle.jar
+7f8cdc147000-7f8cdc148000 r--s 00000000 08:01 402931                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle43/version0.0/bundle.jar
+7f8cdc148000-7f8cdc149000 r--s 00000000 08:01 403561                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle169/version0.0/bundle.jar
+7f8cdc149000-7f8cdc14d000 r--s 00012000 08:01 403636                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle184/version0.0/bundle.jar
+7f8cdc14d000-7f8cdc151000 r--s 0001d000 08:01 402911                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle39/version0.0/bundle.jar
+7f8cdc151000-7f8cdc153000 r--s 00007000 08:01 403846                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle226/version0.0/bundle.jar
+7f8cdc153000-7f8cdc156000 r--s 0000d000 08:01 403581                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle173/version0.0/bundle.jar
+7f8cdc156000-7f8cdc158000 r--s 00006000 08:01 402856                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle28/version0.0/bundle.jar
+7f8cdc158000-7f8cdc159000 r--s 00001000 08:01 402836                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle24/version0.0/bundle.jar
+7f8cdc159000-7f8cdc16a000 r--s 000c8000 08:01 403756                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle208/version0.0/bundle.jar
+7f8cdc16a000-7f8cdc16b000 r--s 00004000 08:01 403171                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle91/version0.0/bundle.jar
+7f8cdc16b000-7f8cdc16c000 r--s 00000000 08:01 403071                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle71/version0.0/bundle.jar
+7f8cdc16c000-7f8cdc16e000 r--s 00009000 08:01 403316                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle120/version0.0/bundle.jar
+7f8cdc16e000-7f8cdc16f000 r--s 00001000 08:01 403311                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle119/version0.0/bundle.jar
+7f8cdc16f000-7f8cdc170000 r--s 00001000 08:01 403176                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle92/version0.0/bundle.jar
+7f8cdc170000-7f8cdc174000 r--s 00015000 08:01 403086                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle74/version0.0/bundle.jar
+7f8cdc174000-7f8cdc178000 r--s 00011000 08:01 403601                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle177/version0.0/bundle.jar
+7f8cdc178000-7f8cdc17a000 r--s 0000b000 08:01 403741                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle205/version0.0/bundle.jar
+7f8cdc17a000-7f8cdc17c000 r--s 00006000 08:01 402896                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle36/version0.0/bundle.jar
+7f8cdc17c000-7f8cdc1a5000 r--s 002c7000 08:01 403746                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle206/version0.0/bundle.jar
+7f8cdc1a5000-7f8cdc1a8000 r--s 00013000 08:01 402826                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle22/version0.0/bundle.jar
+7f8cdc1a8000-7f8cdc1ac000 r--s 00039000 08:01 403546                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle166/version0.0/bundle.jar
+7f8cdc1ac000-7f8cdc1af000 r--s 0002c000 08:01 403106                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle78/version0.0/bundle.jar
+7f8cdc1af000-7f8cdc1b0000 r--s 0000c000 08:01 403146                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle86/version0.0/bundle.jar
+7f8cdc1b0000-7f8cdc1b2000 r--s 00006000 08:01 402886                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle34/version0.0/bundle.jar
+7f8cdc1b2000-7f8cdc1b7000 r--s 0002c000 08:01 403351                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle127/version0.0/bundle.jar
+7f8cdc1b7000-7f8cdc1bb000 r--s 0003a000 08:01 403811                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle219/version0.0/bundle.jar
+7f8cdc1bb000-7f8cdc1bd000 r--s 0000c000 08:01 403826                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle222/version0.0/bundle.jar
+7f8cdc1bd000-7f8cdc1bf000 r--s 00006000 08:01 403856                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle228/version0.0/bundle.jar
+7f8cdc1bf000-7f8cdc1c3000 r--s 00022000 08:01 403186                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle94/version0.0/bundle.jar
+7f8cdc1c3000-7f8cdc1c5000 r--s 00001000 08:01 403666                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle190/version0.0/bundle.jar
+7f8cdc1c5000-7f8cdc1c7000 r--s 00006000 08:01 403921                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle241/version0.0/bundle.jar
+7f8cdc1c7000-7f8cdc1c8000 r--s 0000a000 08:01 403056                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle68/version0.0/bundle.jar
+7f8cdc1c8000-7f8cdc1d3000 r--s 00072000 08:01 402866                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle30/version0.0/bundle.jar
+7f8cdc1d3000-7f8cdc1db000 r--s 0004b000 08:01 403796                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle216/version0.0/bundle.jar
+7f8cdc1db000-7f8cdc1df000 r--s 000d1000 08:01 403296                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle116/version0.0/bundle.jar
+7f8cdc1df000-7f8cdc1e0000 r--s 00007000 08:01 403026                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle62/version0.0/bundle.jar
+7f8cdc1e0000-7f8cdc1e1000 r--s 00005000 08:01 403046                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle66/version0.0/bundle.jar
+7f8cdc1e1000-7f8cdc1e3000 r--s 00005000 08:01 403751                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle207/version0.0/bundle.jar
+7f8cdc1e3000-7f8cdc1e6000 r--s 00009000 08:01 403656                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle188/version0.0/bundle.jar
+7f8cdc1e6000-7f8cdc1e8000 r--s 00008000 08:01 403661                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle189/version0.0/bundle.jar
+7f8cdc1e8000-7f8cdc1ea000 r--s 00006000 08:01 402851                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle27/version0.0/bundle.jar
+7f8cdc1ea000-7f8cdc201000 r--s 000cf000 08:01 402901                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle37/version0.0/bundle.jar
+7f8cdc201000-7f8cdc203000 r--s 00003000 08:01 403736                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle204/version0.0/bundle.jar
+7f8cdc203000-7f8cdc215000 r--s 000a1000 08:01 402936                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle44/version0.0/bundle.jar
+7f8cdc215000-7f8cdc21d000 r--s 00082000 08:01 403216                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle100/version0.0/bundle.jar
+7f8cdc21d000-7f8cdc227000 r--s 00094000 08:01 403181                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle93/version0.0/bundle.jar
+7f8cdc227000-7f8cdc238000 r-xp 00000000 08:01 154888                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f8cdc238000-7f8cdc437000 ---p 00011000 08:01 154888                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f8cdc437000-7f8cdc438000 rw-p 00010000 08:01 154888                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f8cdc438000-7f8cdc44e000 r-xp 00000000 08:01 154885                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f8cdc44e000-7f8cdc64e000 ---p 00016000 08:01 154885                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f8cdc64e000-7f8cdc64f000 rw-p 00016000 08:01 154885                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f8cdc64f000-7f8cdc652000 ---p 00000000 00:00 0 
+7f8cdc652000-7f8cdc750000 rw-p 00000000 00:00 0 
+7f8cdc750000-7f8cdc753000 ---p 00000000 00:00 0 
+7f8cdc753000-7f8cdc851000 rw-p 00000000 00:00 0 
+7f8cdc851000-7f8cdc8ca000 r--s 010f9000 08:01 153625                     /usr/lib/jvm/java-8-oracle/lib/tools.jar
+7f8cdc8ca000-7f8cdc8cb000 ---p 00000000 00:00 0 
+7f8cdc8cb000-7f8cdc9cb000 rw-p 00000000 00:00 0 
+7f8cdc9cb000-7f8cdc9ce000 ---p 00000000 00:00 0 
+7f8cdc9ce000-7f8cdcacc000 rw-p 00000000 00:00 0 
+7f8cdcacc000-7f8cdcacf000 ---p 00000000 00:00 0 
+7f8cdcacf000-7f8cdcbcd000 rw-p 00000000 00:00 0 
+7f8cdcbcd000-7f8cdcbd0000 ---p 00000000 00:00 0 
+7f8cdcbd0000-7f8cdccce000 rw-p 00000000 00:00 0 
+7f8cdccce000-7f8cdcd64000 r--s 0110a000 08:01 277287                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/jfxrt.jar
+7f8cdcd64000-7f8cdcd67000 ---p 00000000 00:00 0 
+7f8cdcd67000-7f8cdce65000 rw-p 00000000 00:00 0 
+7f8cdce65000-7f8cdd000000 r--p 00000000 08:01 131073                     /usr/lib/locale/locale-archive
+7f8cdd000000-7f8cdf290000 rwxp 00000000 00:00 0 
+7f8cdf290000-7f8cec000000 ---p 00000000 00:00 0 
+7f8cec000000-7f8cecc74000 rw-p 00000000 00:00 0 
+7f8cecc74000-7f8cf0000000 ---p 00000000 00:00 0 
+7f8cf0000000-7f8cf0001000 r--s 00001000 08:01 403481                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle153/version0.0/bundle.jar
+7f8cf0001000-7f8cf0003000 r--s 0000a000 08:01 403611                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle179/version0.0/bundle.jar
+7f8cf0003000-7f8cf0004000 r--s 00002000 08:01 403371                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle131/version0.0/bundle.jar
+7f8cf0004000-7f8cf0006000 r--s 00011000 08:01 403441                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle145/version0.0/bundle.jar
+7f8cf0006000-7f8cf0009000 r--s 0002a000 08:01 403446                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle146/version0.0/bundle.jar
+7f8cf0009000-7f8cf000c000 r--s 00013000 08:01 402956                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle48/version0.0/bundle.jar
+7f8cf000c000-7f8cf0016000 r--s 000a8000 08:01 403801                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle217/version0.0/bundle.jar
+7f8cf0016000-7f8cf001b000 r--s 0009d000 08:01 154826                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7f8cf001b000-7f8cf0037000 r--s 00393000 08:01 277286                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+7f8cf0037000-7f8cf0041000 r--s 00116000 08:01 277293                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+7f8cf0041000-7f8cf0049000 r--s 0007a000 08:01 401140                     /opt/glassfish4/glassfish/osgi/felix/bin/felix.jar
+7f8cf0049000-7f8cf004c000 ---p 00000000 00:00 0 
+7f8cf004c000-7f8cf014a000 rw-p 00000000 00:00 0 
+7f8cf014a000-7f8cf014d000 ---p 00000000 00:00 0 
+7f8cf014d000-7f8cf024b000 rw-p 00000000 00:00 0 
+7f8cf024b000-7f8cf024c000 ---p 00000000 00:00 0 
+7f8cf024c000-7f8cf039b000 rw-p 00000000 00:00 0 
+7f8cf039b000-7f8cf0574000 r--s 03d64000 08:01 154776                     /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+7f8cf0574000-7f8cf0645000 rw-p 00000000 00:00 0 
+7f8cf0645000-7f8cf0e45000 rw-p 00000000 00:00 0 
+7f8cf0e45000-7f8cf0e66000 rw-p 00000000 00:00 0 
+7f8cf0e66000-7f8cf0e9a000 ---p 00000000 00:00 0 
+7f8cf0e9a000-7f8cf0edb000 rw-p 00000000 00:00 0 
+7f8cf0edb000-7f8cf0f45000 ---p 00000000 00:00 0 
+7f8cf0f45000-7f8cf0fd1000 rw-p 00000000 00:00 0 
+7f8cf0fd1000-7f8cf1306000 ---p 00000000 00:00 0 
+7f8cf1306000-7f8cf1321000 r-xp 00000000 08:01 154881                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f8cf1321000-7f8cf1521000 ---p 0001b000 08:01 154881                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f8cf1521000-7f8cf1522000 rw-p 0001b000 08:01 154881                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f8cf1522000-7f8cf152c000 r-xp 00000000 08:01 524453                     /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f8cf152c000-7f8cf172c000 ---p 0000a000 08:01 524453                     /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f8cf172c000-7f8cf172d000 r--p 0000a000 08:01 524453                     /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f8cf172d000-7f8cf172e000 rw-p 0000b000 08:01 524453                     /lib/x86_64-linux-gnu/libnss_files-2.24.so
+7f8cf172e000-7f8cf1734000 rw-p 00000000 00:00 0 
+7f8cf1734000-7f8cf173f000 r-xp 00000000 08:01 524755                     /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f8cf173f000-7f8cf193e000 ---p 0000b000 08:01 524755                     /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f8cf193e000-7f8cf193f000 r--p 0000a000 08:01 524755                     /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f8cf193f000-7f8cf1940000 rw-p 0000b000 08:01 524755                     /lib/x86_64-linux-gnu/libnss_nis-2.24.so
+7f8cf1940000-7f8cf1954000 r-xp 00000000 08:01 524398                     /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f8cf1954000-7f8cf1b54000 ---p 00014000 08:01 524398                     /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f8cf1b54000-7f8cf1b55000 r--p 00014000 08:01 524398                     /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f8cf1b55000-7f8cf1b56000 rw-p 00015000 08:01 524398                     /lib/x86_64-linux-gnu/libnsl-2.24.so
+7f8cf1b56000-7f8cf1b58000 rw-p 00000000 00:00 0 
+7f8cf1b58000-7f8cf1b5f000 r-xp 00000000 08:01 524399                     /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f8cf1b5f000-7f8cf1d5e000 ---p 00007000 08:01 524399                     /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f8cf1d5e000-7f8cf1d5f000 r--p 00006000 08:01 524399                     /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f8cf1d5f000-7f8cf1d60000 rw-p 00007000 08:01 524399                     /lib/x86_64-linux-gnu/libnss_compat-2.24.so
+7f8cf1d60000-7f8cf1d6a000 r-xp 00000000 08:01 154890                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7f8cf1d6a000-7f8cf1f69000 ---p 0000a000 08:01 154890                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7f8cf1f69000-7f8cf1f6a000 rw-p 00009000 08:01 154890                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libinstrument.so
+7f8cf1f6a000-7f8cf1f95000 r-xp 00000000 08:01 154875                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f8cf1f95000-7f8cf2194000 ---p 0002b000 08:01 154875                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f8cf2194000-7f8cf2196000 rw-p 0002a000 08:01 154875                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f8cf2196000-7f8cf21a3000 r-xp 00000000 08:01 154880                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f8cf21a3000-7f8cf23a3000 ---p 0000d000 08:01 154880                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f8cf23a3000-7f8cf23a5000 rw-p 0000d000 08:01 154880                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f8cf23a5000-7f8cf23ac000 r-xp 00000000 08:01 524786                     /lib/x86_64-linux-gnu/librt-2.24.so
+7f8cf23ac000-7f8cf25ab000 ---p 00007000 08:01 524786                     /lib/x86_64-linux-gnu/librt-2.24.so
+7f8cf25ab000-7f8cf25ac000 r--p 00006000 08:01 524786                     /lib/x86_64-linux-gnu/librt-2.24.so
+7f8cf25ac000-7f8cf25ad000 rw-p 00007000 08:01 524786                     /lib/x86_64-linux-gnu/librt-2.24.so
+7f8cf25ad000-7f8cf26b0000 r-xp 00000000 08:01 524395                     /lib/x86_64-linux-gnu/libm-2.24.so
+7f8cf26b0000-7f8cf28af000 ---p 00103000 08:01 524395                     /lib/x86_64-linux-gnu/libm-2.24.so
+7f8cf28af000-7f8cf28b0000 r--p 00102000 08:01 524395                     /lib/x86_64-linux-gnu/libm-2.24.so
+7f8cf28b0000-7f8cf28b1000 rw-p 00103000 08:01 524395                     /lib/x86_64-linux-gnu/libm-2.24.so
+7f8cf28b1000-7f8cf358a000 r-xp 00000000 08:01 154858                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f8cf358a000-7f8cf3789000 ---p 00cd9000 08:01 154858                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f8cf3789000-7f8cf3862000 rw-p 00cd8000 08:01 154858                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f8cf3862000-7f8cf38ae000 rw-p 00000000 00:00 0 
+7f8cf38ae000-7f8cf3a43000 r-xp 00000000 08:01 524391                     /lib/x86_64-linux-gnu/libc-2.24.so
+7f8cf3a43000-7f8cf3c43000 ---p 00195000 08:01 524391                     /lib/x86_64-linux-gnu/libc-2.24.so
+7f8cf3c43000-7f8cf3c47000 r--p 00195000 08:01 524391                     /lib/x86_64-linux-gnu/libc-2.24.so
+7f8cf3c47000-7f8cf3c49000 rw-p 00199000 08:01 524391                     /lib/x86_64-linux-gnu/libc-2.24.so
+7f8cf3c49000-7f8cf3c4d000 rw-p 00000000 00:00 0 
+7f8cf3c4d000-7f8cf3c50000 r-xp 00000000 08:01 524394                     /lib/x86_64-linux-gnu/libdl-2.24.so
+7f8cf3c50000-7f8cf3e4f000 ---p 00003000 08:01 524394                     /lib/x86_64-linux-gnu/libdl-2.24.so
+7f8cf3e4f000-7f8cf3e50000 r--p 00002000 08:01 524394                     /lib/x86_64-linux-gnu/libdl-2.24.so
+7f8cf3e50000-7f8cf3e51000 rw-p 00003000 08:01 524394                     /lib/x86_64-linux-gnu/libdl-2.24.so
+7f8cf3e51000-7f8cf3e67000 r-xp 00000000 08:01 154669                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f8cf3e67000-7f8cf4066000 ---p 00016000 08:01 154669                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f8cf4066000-7f8cf4067000 rw-p 00015000 08:01 154669                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f8cf4067000-7f8cf407f000 r-xp 00000000 08:01 524782                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f8cf407f000-7f8cf427e000 ---p 00018000 08:01 524782                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f8cf427e000-7f8cf427f000 r--p 00017000 08:01 524782                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f8cf427f000-7f8cf4280000 rw-p 00018000 08:01 524782                     /lib/x86_64-linux-gnu/libpthread-2.24.so
+7f8cf4280000-7f8cf4284000 rw-p 00000000 00:00 0 
+7f8cf4284000-7f8cf42a7000 r-xp 00000000 08:01 524387                     /lib/x86_64-linux-gnu/ld-2.24.so
+7f8cf42a7000-7f8cf42a8000 r--s 00003000 08:01 403236                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle104/version0.0/bundle.jar
+7f8cf42a8000-7f8cf42a9000 r--s 00000000 08:01 403466                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle150/version0.0/bundle.jar
+7f8cf42a9000-7f8cf42ab000 r--s 00007000 08:01 403301                     /opt/glassfish4/glassfish/domains/domain1/osgi-cache/felix/bundle117/version0.0/bundle.jar
+7f8cf42ab000-7f8cf42ac000 r--s 00000000 08:01 402055                     /opt/glassfish4/glassfish/lib/monitor/flashlight-agent.jar
+7f8cf42ac000-7f8cf42af000 r--s 00013000 08:01 402402                     /opt/glassfish4/glassfish/modules/hk2-utils.jar
+7f8cf42af000-7f8cf42b8000 r--s 000a1000 08:01 402416                     /opt/glassfish4/glassfish/modules/javassist.jar
+7f8cf42b8000-7f8cf42bd000 r--s 00024000 08:01 402398                     /opt/glassfish4/glassfish/modules/hk2-api.jar
+7f8cf42bd000-7f8cf42bf000 r--s 00002000 08:01 402312                     /opt/glassfish4/glassfish/modules/aopalliance-repackaged.jar
+7f8cf42bf000-7f8cf42c2000 r--s 00026000 08:01 402400                     /opt/glassfish4/glassfish/modules/hk2-locator.jar
+7f8cf42c2000-7f8cf42c6000 r--s 00019000 08:01 402358                     /opt/glassfish4/glassfish/modules/core.jar
+7f8cf42c6000-7f8cf42e5000 r--s 0031f000 08:01 409502                     /opt/glassfish4/glassfish/domains/domain1/lib/ext/ojdbc7.jar
+7f8cf42e5000-7f8cf4326000 rw-p 00000000 00:00 0 
+7f8cf4326000-7f8cf4390000 ---p 00000000 00:00 0 
+7f8cf4390000-7f8cf4398000 rw-s 00000000 08:01 155253                     /tmp/hsperfdata_glassfish/28414
+7f8cf4398000-7f8cf439b000 ---p 00000000 00:00 0 
+7f8cf439b000-7f8cf449b000 rw-p 00000000 00:00 0 
+7f8cf449b000-7f8cf449c000 r--s 00002000 08:01 402522                     /opt/glassfish4/glassfish/modules/simple-glassfish-api.jar
+7f8cf449c000-7f8cf449d000 r--s 00001000 08:01 402421                     /opt/glassfish4/glassfish/modules/javax.inject.jar
+7f8cf449d000-7f8cf44a0000 r--s 0001d000 08:01 402389                     /opt/glassfish4/glassfish/modules/glassfish.jar
+7f8cf44a0000-7f8cf44a2000 r--s 00005000 08:01 402368                     /opt/glassfish4/glassfish/modules/endorsed/javax.annotation-api.jar
+7f8cf44a2000-7f8cf44a3000 rw-p 00000000 00:00 0 
+7f8cf44a3000-7f8cf44a4000 r--p 00000000 00:00 0 
+7f8cf44a4000-7f8cf44a7000 rw-p 00000000 00:00 0 
+7f8cf44a7000-7f8cf44a8000 r--p 00023000 08:01 524387                     /lib/x86_64-linux-gnu/ld-2.24.so
+7f8cf44a8000-7f8cf44a9000 rw-p 00024000 08:01 524387                     /lib/x86_64-linux-gnu/ld-2.24.so
+7f8cf44a9000-7f8cf44aa000 rw-p 00000000 00:00 0 
+7fffe739e000-7fffe73c0000 rw-p 00000000 00:00 0                          [stack]
+7fffe73d3000-7fffe73d5000 r--p 00000000 00:00 0                          [vvar]
+7fffe73d5000-7fffe73d7000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -XX:+UnlockDiagnosticVMOptions -XX:NewRatio=2 -XX:MaxPermSize=192m -Xmx512m -javaagent:/opt/glassfish4/glassfish/lib/monitor/flashlight-agent.jar -Djavax.xml.accessExternalSchema=all -Djavax.net.ssl.trustStore=/opt/glassfish4/glassfish/domains/domain1/config/cacerts.jks -Djdk.corba.allowOutputStreamSubclass=true -Dfelix.fileinstall.dir=/opt/glassfish4/glassfish/modules/autostart/ -Dorg.glassfish.additionalOSGiBundlesToStart=org.apache.felix.shell,org.apache.felix.gogo.runtime,org.apache.felix.gogo.shell,org.apache.felix.gogo.command,org.apache.felix.shell.remote,org.apache.felix.fileinstall -Dcom.sun.aas.installRoot=/opt/glassfish4/glassfish -Dfelix.fileinstall.poll=5000 -Djava.endorsed.dirs=/opt/glassfish4/glassfish/modules/endorsed:/opt/glassfish4/glassfish/lib/endorsed -Djava.security.policy=/opt/glassfish4/glassfish/domains/domain1/config/server.policy -Dosgi.shell.telnet.maxconn=1 -Dfelix.fileinstall.bundles.startTransient=true -Dcom.sun.enterprise.config.config_environment_factory_class=com.sun.enterprise.config.serverbeans.AppserverConfigEnvironmentFactory -Dfelix.fileinstall.log.level=2 -Djavax.net.ssl.keyStore=/opt/glassfish4/glassfish/domains/domain1/config/keystore.jks -Djava.security.auth.login.config=/opt/glassfish4/glassfish/domains/domain1/config/login.conf -Dfelix.fileinstall.disableConfigSave=false -Dfelix.fileinstall.bundles.new.start=true -Dcom.sun.aas.instanceRoot=/opt/glassfish4/glassfish/domains/domain1 -Dosgi.shell.telnet.port=6666 -Dgosh.args=--nointeractive -Dcom.sun.enterprise.security.httpsOutboundKeyAlias=s1as -Dosgi.shell.telnet.ip=127.0.0.1 -DANTLR_USE_DIRECT_CLASS_LOADING=true -Djava.awt.headless=true -Dcom.ctc.wstx.returnNullForDefaultNamespace=true -Djava.ext.dirs=/usr/lib/jvm/java-8-oracle/lib/ext:/usr/lib/jvm/java-8-oracle/jre/lib/ext:/opt/glassfish4/glassfish/domains/domain1/lib/ext -Djdbc.drivers=org.apache.derby.jdbc.ClientDriver -Djava.library.path=/opt/glassfish4/glassfish/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib 
+java_command: com.sun.enterprise.glassfish.bootstrap.ASMain -upgrade false -domaindir /opt/glassfish4/glassfish/domains/domain1 -read-stdin true -asadmin-args --host,,,localhost,,,--port,,,4848,,,--secure=false,,,--terse=false,,,--echo=false,,,--interactive=true,,,start-domain,,,--verbose=false,,,--watchdog=false,,,--debug=false,,,--domaindir,,,/opt/glassfish4/glassfish/domains,,,domain1 -domainname domain1 -instancename server -type DAS -verbose false -asadmin-classpath /opt/glassfish4/glassfish/lib/client/appserver-cli.jar -debug false -asadmin-classname com.sun.enterprise.admin.cli.AdminMain
+java_class_path (initial): /opt/glassfish4/glassfish/modules/glassfish.jar:/opt/glassfish4/glassfish/lib/monitor/flashlight-agent.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+USERNAME=root
+SHELL=/bin/sh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xad01e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xad01e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x927fb0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x9297f0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x92abf0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:PRETTY_NAME="Debian GNU/Linux 9 (stretch)"
+NAME="Debian GNU/Linux"
+VERSION_ID="9"
+VERSION="9 (stretch)"
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+
+uname:Linux 4.9.0-5-amd64 #1 SMP Debian 4.9.65-3+deb9u2 (2018-01-04) x86_64
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE 0k, NPROC 2283, NOFILE 1048576, AS infinity
+load average:1.43 0.79 0.45
+
+/proc/meminfo:
+MemTotal:         606748 kB
+MemFree:           38480 kB
+MemAvailable:          0 kB
+Buffers:             220 kB
+Cached:             7608 kB
+SwapCached:            0 kB
+Active:           512928 kB
+Inactive:           6092 kB
+Active(anon):     511972 kB
+Inactive(anon):     4676 kB
+Active(file):        956 kB
+Inactive(file):     1416 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 8 kB
+Writeback:             0 kB
+AnonPages:        511244 kB
+Mapped:             2992 kB
+Shmem:              5404 kB
+Slab:              23408 kB
+SReclaimable:       9780 kB
+SUnreclaim:        13628 kB
+KernelStack:        3996 kB
+PageTables:         5536 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      303372 kB
+Committed_AS:    1097172 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       67532 kB
+DirectMap2M:      561152 kB
+DirectMap1G:           0 kB
+
+
+CPU:total 1 (initial active 1) (1 cores per cpu, 1 threads per core) family 6 model 85 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 85
+model name	: Intel(R) Xeon(R) CPU
+stepping	: 3
+microcode	: 0x1
+cpu MHz		: 2000.154
+cache size	: 56320 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single kaiser fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx avx512f avx512dq rdseed adx smap clflushopt clwb avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves
+bugs		:
+bogomips	: 4000.30
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 606748k(38824k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.161-b12) for linux-amd64 JRE (1.8.0_161-b12), built on Dec 19 2017 16:12:43 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Feb 14 18:34:33 2018
+elapsed time: 421 seconds (0d 0h 7m 1s)
+

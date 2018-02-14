@@ -1,0 +1,24 @@
+/* AUTOMATICALLY GENERATED ON Wed Feb 14 16:22:07 UTC 2018*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "find,Local,java.lang.Integer";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "create,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "create,Local,entity.Hospital";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "remove,Local,java.lang.Integer";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "findAllByType,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "countREST,Local,";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "findRange,Local,java.lang.Integer,java.lang.Integer";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "edit,Local,java.lang.Integer,entity.Hospital";
+  permission javax.security.jacc.EJBMethodPermission "HospitalFacadeREST", "find,Local,java.lang.Object";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "HospitalFacadeREST", "**";
+};
+
